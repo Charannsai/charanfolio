@@ -9,7 +9,7 @@ const Blog = () => {
     <div>
         <CodeBlocks/>
       <Navigation/>
-      <div className='mt-28 px-8 py-8'>
+      <div className='mt-28 px-8 py-4'>
       <BlogCard />
       </div>
       <ContactSection/>

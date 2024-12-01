@@ -45,13 +45,13 @@ export default function Hero() {
 
 
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-white min-[320px]:text-2xl"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2 text-white min-[320px]:text-3xl"
             >
               <TypeAnimation
                 sequence={[
                   'Hi, I\'m Charan Sai.', 2000,
                   'I\'m a Developer.', 2000,
-                  'I\'m a Tech Enthusiast.', 2000,
+                  'I\'m a Tech Enthusiast', 2000,
                 ]}
                 wrapper="span"
                 speed={30}
@@ -61,7 +61,7 @@ export default function Hero() {
 
             <motion.p
               variants={fadeInUp}
-              className="text-base sm:text-lg md:text-xl text-neutral-300 mb-12 px-4 max-w-screen-md leading-relaxed mx-auto text-center mt-6"
+              className="text-base sm:text-lg md:text-xl text-neutral-300 mb-12 px-4 max-w-screen-md leading-relaxed mx-auto text-center mt-4"
             >
               I'm a developer with a knack for creating user-friendly applications and solving complex problems.
               With expertise in [technologies], I'm passionate about building tools that empower users and make technology accessible.
@@ -77,7 +77,7 @@ export default function Hero() {
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors"
+                className="flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors"
               >
                 Hire Me
                 <ArrowRight size={16} />
@@ -87,7 +87,7 @@ export default function Hero() {
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors"
+                className="flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition-colors"
               >
                 View My Resume
                 <ExternalLink size={16} />
@@ -117,7 +117,7 @@ export default function Hero() {
 
           <Suspense fallback={<div>Loading Blogs...</div>}>
             <div className="max-w-full mx-auto px-4 mt-8">
-              <BlogSection />
+              <BlogSection limit={2} />
               <motion.div
                 variants={fadeInUp}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -134,11 +134,10 @@ export default function Hero() {
               </motion.div>
             </div>
           </Suspense>
-
+        </div>
           <Suspense fallback={<div>Loading Contact...</div>}>
             <ContactSection />
           </Suspense>
-        </div>
       </section>
     </PageLayout>
   );

@@ -140,7 +140,7 @@ function About() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="-mt-16 font-bold text-3xl text-gray-400 text-center lg:text-left">
+            <p className="-mt-16 min-[320px]:text-xl min-[768px]:text-3xl font-bold text-3xl text-gray-400 text-center lg:text-left">
               "Driven by curiosity, fueled by code."
             </p>
           </motion.div>

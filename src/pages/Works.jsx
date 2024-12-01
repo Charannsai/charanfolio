@@ -117,7 +117,7 @@ const WorkPage = () => {
       <GradientBlob />
       <Navigation />
       
-      <div className="relative z-10 px-6 py-24 max-w-7xl mx-auto mt-8">
+      <div className="relative z-10 px-6 max-w-7xl mx-auto mt-24">
         <div className="text-center mb-16">
           <motion.h1
             className="text-5xl md:text-7xl font-bold"

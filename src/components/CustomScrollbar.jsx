@@ -20,11 +20,11 @@ export const CustomScrollbar = () => {
 
   return (
     <motion.div
-      className="fixed right-0 top-0 bottom-0 w-1 bg-gray-700"
+      className="fixed right-0 top-0 bottom-0 w-0.5 bg-gray-700"
       style={{ originY: 0 }}
     >
       <motion.div
-        className="w-full bg-gradient-to-b from-blue-800 to-sky-600"
+        className="w-full bg-gradient-to-b from-sky-600 to-blue-700"
         style={{
           height: '100%',
           scaleY,

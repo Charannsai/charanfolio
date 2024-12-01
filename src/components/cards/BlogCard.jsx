@@ -38,12 +38,15 @@ const posts = [
   },
 ];
 
-export default function BlogSection() {
+export default function BlogSection({ limit }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [selectedPost, setSelectedPost] = useState(null);
 
   const openPopup = (post) => setSelectedPost(post);
   const closePopup = () => setSelectedPost(null);
+
+  
+  const displayedPosts = limit ? posts.slice(0, limit) : posts;
 
   return (
     <div className="relative min-h-screen bg-transparent text-white">
@@ -63,8 +66,8 @@ export default function BlogSection() {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 cursor-pointer">
+        {displayedPosts.map((post, index) => (
           <motion.div
             key={index}
             className="relative group"
@@ -83,21 +86,26 @@ export default function BlogSection() {
                 className="h-40 w-full object-cover rounded-lg mb-4"
               />
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                  {post.title}
-                </h3>
-                <p className="mt-3 text-gray-300">{post.excerpt}</p>
-                <div className="mt-4 text-neutral-400 text-sm">
-                  {post.date} • {post.readTime}
-                </div>
-                <button className="mt-4 inline-flex items-center gap-2 text-primary hover:text-green-500">
+                <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
+                <p className="text-sm text-neutral-400 mb-2">{post.excerpt}</p>
+                <p className="text-xs text-neutral-500">{post.date} · {post.readTime}</p>
+              </div>
+              <button className="mt-4 cursor-pointer inline-flex items-center gap-2 text-primary hover:text-green-500">
                   Read More <ArrowRight size={16} />
                 </button>
-              </div>
             </div>
           </motion.div>
         ))}
       </div>
+
+      {limit && (
+        <motion.div
+          variants={fadeInUp}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          
+        </motion.div>
+      )}
 
       {selectedPost && (
   <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50">
