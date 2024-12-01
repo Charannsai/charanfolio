@@ -49,7 +49,7 @@ export default function BlogSection({ limit }) {
   const displayedPosts = limit ? posts.slice(0, limit) : posts;
 
   return (
-    <div className="relative min-h-screen bg-transparent text-white">
+    <div className="relative bg-transparent text-white">
       <motion.div
         ref={ref}
         variants={fadeInUp}
