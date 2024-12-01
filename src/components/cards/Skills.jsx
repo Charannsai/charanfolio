@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { Code2, Palette, Database, Terminal, Globe, Cpu } from 'lucide-react';
-import {  FaGit, FaLightbulb, FaTools } from 'react-icons/fa';
+import { Code2, Database, Terminal, Cpu } from 'lucide-react';
+import { FaLightbulb } from 'react-icons/fa';
 
 const skills = [
   { name: 'Frontend Development', icon: Code2, level: 95 },

@@ -135,7 +135,7 @@ function About() {
           >
             <div className="w-96 h-96 sm:w-[500px] sm:h-[500px] overflow-hidden shadow-xl mx-auto">
               <img
-                src="/src/assets/imgg2.png"
+                src="/src/public/assets/imgg2.png"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
