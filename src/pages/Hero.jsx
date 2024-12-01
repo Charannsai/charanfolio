@@ -83,7 +83,7 @@ export default function Hero() {
                 <ArrowRight size={16} />
               </motion.a>
               <motion.a
-                href="/src/public/assets/myResume.pdf"
+                href="./src/public/assets/myResume.pdf"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

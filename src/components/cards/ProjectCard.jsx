@@ -17,7 +17,7 @@ const projects = [
     link: "#",
   },
   
-  // Add more projects here as needed
+  
 ];
 
 export default function Projects() {
