@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { BinaryRings } from '../backgrounds/BinaryRings'
 import Navigation from '../components/Navigation'
-import { Mail, Github, Linkedin, Twitter, SendHorizontal, Sparkles } from 'lucide-react';
+import { Mail, Github, Linkedin, Instagram, SendHorizontal, Sparkles } from 'lucide-react';
 
 const ContactPage = () => {
   
@@ -114,32 +114,32 @@ const ContactPage = () => {
             className="mt-12 flex justify-center gap-8"
           >
             <motion.a
-              href="#"
+              href="mailto:pathurisai31@gmail.com"
               whileHover={{ scale: 1.1 }}
               className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-all"
             >
               <Mail className="w-6 h-6" />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://www.github.com/Charannsai"
               whileHover={{ scale: 1.1 }}
               className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-all"
             >
               <Github className="w-6 h-6" />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://www.linkedin.com/in/charan-sai-pathuri-177a9a282"
               whileHover={{ scale: 1.1 }}
               className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-all"
             >
               <Linkedin className="w-6 h-6" />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://www.instagram.com/saircasticc"
               whileHover={{ scale: 1.1 }}
               className="p-3 bg-white/5 rounded-full hover:bg-white/10 transition-all"
             >
-              <Twitter className="w-6 h-6" />
+              <Instagram className="w-6 h-6" />
             </motion.a>
           </motion.div>
         </div>

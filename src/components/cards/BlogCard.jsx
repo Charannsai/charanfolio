@@ -19,6 +19,15 @@ const posts = [
     image: "https://images.pexels.com/photos/8438918/pexels-photo-8438918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
+    title: "Why Freelancing is a Great Way to Kickstart Your Career",
+    excerpt: "Freelancing is more than just a flexible job; it’s an excellent way to build your career and gain valuable...",
+    date: "Oct 20, 2024",
+    readTime: "5 min read",
+    content:
+      "Freelancing is an incredible way to launch your career, offering flexibility, real-world experience, and income potential. As a freelancer, you gain hands-on experience by working on diverse projects, which helps you develop a solid portfolio. This exposure allows you to hone your skills while working with clients across various industries.The freedom to set your own schedule and rates gives you control over your work-life balance and income. Plus, freelancing opens up networking opportunities with clients and other professionals, which can lead to future job prospects.Overall, freelancing is a powerful stepping stone to building a successful career while gaining invaluable experience.",
+    image: "https://images.pexels.com/photos/5862374/pexels-photo-5862374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
     title: "My First Hackathon Experience",
     excerpt: "Hackathons are intense yet incredibly rewarding. In my recent Hack-Arena participation, I had the opportunity to collaborate with brilliant minds...",
     date: "Nov 18, 2024",
