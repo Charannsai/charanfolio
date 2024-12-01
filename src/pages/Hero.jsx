@@ -64,7 +64,7 @@ export default function Hero() {
               className="text-base sm:text-lg md:text-xl text-neutral-300 mb-12 px-4 max-w-screen-md leading-relaxed mx-auto text-center mt-4"
             >
               I'm a developer with a knack for creating user-friendly applications and solving complex problems.
-              With expertise in [technologies], I'm passionate about building tools that empower users and make technology accessible.
+              I'm passionate about building tools that empower users and make technology accessible.
               When I’m not coding, you’ll find me exploring the latest in AI and building projects that make an impact.
             </motion.p>
 
