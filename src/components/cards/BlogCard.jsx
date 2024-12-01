@@ -34,7 +34,7 @@ const posts = [
     readTime: "7 min read",
     content:
       "Participating in a hackathon is one of the most exhilarating experiences of my life. In the 2024 Hack-Arena, I had the chance to work with talented individuals, brainstorm creative solutions, and build a project under time pressure. It was a thrilling challenge to conceptualize and develop our project from scratch. The collaboration, problem-solving, and learning that happened over those intense hours taught me invaluable skills, especially in rapid prototyping and innovation. I also got feedback from industry juries, which helped refine our approach. Hackathons push you to think outside the box and grow as a developer.",
-    image: "./src/public/assets/hackathon.jpg",
+    image: "/assets/hackathon.jpg",
   },
 ];
 

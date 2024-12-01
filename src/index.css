@@ -25,7 +25,7 @@ html, body {
   .mask-image {
     mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 95%);
   }
-  /* Tailwind Custom CSS for animated scroll */
+  
 @keyframes scroll {
   0% {
     transform: translateX(0);
