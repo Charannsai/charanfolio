@@ -1,9 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { GradientBlob } from "../backgrounds/GradientBlob";
 import Navigation from "../components/Navigation";
 import ContactSection from "../components/cards/ContactCard";
 import { ExternalLink, Github } from "lucide-react";
+import { GradientBlob } from "../backgrounds/GradientBlob";
 
 const ProjectCard = ({ project, index }) => {
   const cardVariants = {
@@ -82,18 +82,46 @@ const ProjectCard = ({ project, index }) => {
 const WorkPage = () => {
   const projects = [
     {
-      title: "SkillTrade",
+      title: "KaaryaLink",
       description:
-        "A platform for skill-based learning and teaching through live video sessions and a gamified ecosystem.",
+      "A platform for skill-based learning and teaching through live video sessions and a gamified ecosystem.",
       techStack: "React, Firebase, WebRTC, TailwindCSS",
       highlights: [
         "Designed and implemented a real-time video chat system using WebRTC.",
         "Developed a gamified leveling system to enhance user engagement.",
         "Integrated skill-matching algorithms for automatic and manual matches.",
       ],
-      outcome: "Increased user retention by 20% in beta testing. Currently Working to produce the full-fledged application with more Enhancements",
+      outcome: "Increased user retention by 20% in beta testing. Currently Working to produce the full-fledged application with more Enhancements.",
       liveLink: "https://skill-trade-nine.vercel.app/",
       repoLink: "https://github.com/Charannsai/SkillTrade",
+    },
+    {
+      title: "EventOrg",
+      description:
+        "EventOrg is a platform for organizing events and generating participant certificates with a single click.",
+      techStack: "React, PostgreSQL, Node.js, TailwindCSS",
+      highlights: [
+        "EventOrg enables seamless event hosting with a drag-and-drop interface and supports custom subdomains for each event.",
+        "It features one-click certificate generation for participants and offers user-friendly event management and tracking.",
+      ],
+      outcome:
+        "The outcome is still in progress, with ongoing efforts to refine the user interface and improve scalability for handling larger events, aiming to enhance overall user experience and efficiency.",
+      liveLink: "/works",
+      repoLink: "/works",
+    },
+    {
+      title: "JNTUH Hub",
+      description:
+        "Developed a JNTUH Notes platform with organized PDF notes, syllabus details, yearly schedules, and an AI chatbot to assist students with subject-related queries.",
+      techStack: "React, PostgreSQL, Firebase, Supabase, TailwindCSS",
+      highlights: [
+        "The JNTUH Notes platform provides organized PDF notes for students, along with detailed syllabi and yearly schedules.",
+        "It also includes an AI chatbot to assist students with subject-related queries, enhancing accessibility and support.",
+      ],
+      outcome:
+        "The outcome is still in progress, with ongoing efforts to refine the user interface and improve scalability for handling larger events, aiming to enhance overall user experience and efficiency.",
+      liveLink: "/works",
+      repoLink: "/works",
     },
     {
       title: "Weather App",
@@ -113,11 +141,12 @@ const WorkPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-transparent text-white">
-      <GradientBlob />
+    
+    <div className="relative min-h-screen text-gray-400 bg-zinc-800/90 rounded-lg shadow-xl backdrop-blur-lg">
       <Navigation />
-      
-      <div className="relative z-10 px-6 max-w-7xl mx-auto mt-24">
+      <GradientBlob />
+      <div className="relative z-10 px-6 max-w-7xl mx-auto mt-24 ">
+        
         <div className="text-center mb-16">
           <motion.h1
             className="text-5xl md:text-7xl font-bold"
@@ -125,7 +154,7 @@ const WorkPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
               My Work
             </span>
           </motion.h1>

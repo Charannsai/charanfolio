@@ -99,10 +99,8 @@ function About() {
             >
               Hello, I'm Charan Sai
             </h1>
-            <p className="text-lg text-gray-300 mb-4 leading-relaxed">
-            A passionate Full Stack Developer building scalable web applications and mobile solutions.
-              A curious coder and a problem solver. I've built impactful solutions, from scalable web apps to AI-driven tools
-              with a strong focus on creating elegant and efficient solutions to complex problems.
+            <p className="md:text-base text-sm text-zinc-500 mb-4">
+            I am an engineering student passionate about AI and Software Development, with a keen interest in research and innovation. I aspire to contribute to cutting-edge projects that address real-world challenges through technology. My experience includes working on research papers, developing innovative projects, and participating in hackathons. I am eager to expand my knowledge by collaborating with leading researchers and industry professionals, enhancing my technical and analytical skills and I'm committed to continuous learning to stay at the forefront of emerging technologies.
             </p>
             <div className="space-y-2">
               <motion.a
@@ -115,7 +113,7 @@ function About() {
                 <ArrowRight size={16} />
               </motion.a>
               <motion.a
-                href="/assets/myResume.pdf" 
+                href="/assets/MyResume.pdf" 
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -23,9 +23,10 @@ export default function Hero() {
   return (
     <PageLayout>
       <Navigation />
+      
       <section className="min-h-screen relative overflow-hidden">
         
-        <div className="absolute inset-0 bg-gradient-to-l from-primary/10 to-purple-600/10 dark:from-primary/20 dark:to-purple-500/20 flex justify-center items-center" />
+        <div className="absolute inset-0 items-center" />
         
         <div className="px-4 sm:px-6 py-12 relative z-10 text-white">
           <motion.div
@@ -61,10 +62,11 @@ export default function Hero() {
 
             <motion.p
               variants={fadeInUp}
-              className="text-base sm:text-lg md:text-xl text-neutral-300 mb-12 px-4 max-w-screen-md leading-relaxed mx-auto text-center mt-4"
+              className="text-base sm:text-lg md:text-xl text-zinc-400 mb-12 px-4 max-w-screen-md leading-relaxed mx-auto text-center mt-4"
             >
-              I'm a developer with a knack for creating user-friendly applications and solving complex problems.
-              I'm passionate about building tools that empower users and make technology accessible.
+              I'm a Full Stack developer with a knack for creating user-friendly applications and solving complex problems.
+              My journey in technology and research has led me to work on a variety of projects.
+              I'm passionate about research and development, and I'm always looking for new ways to make a positive impact.
               When I’m not coding, you’ll find me exploring the latest in AI and building projects that make an impact.
             </motion.p>
 
@@ -83,7 +85,7 @@ export default function Hero() {
                 <ArrowRight size={16} />
               </motion.a>
               <motion.a
-                href="/assets/myResume.pdf"
+                href="/assets/MyResume.pdf"
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

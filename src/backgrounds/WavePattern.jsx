@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion';
 import React from 'react';
+import { useAnimationSettings } from '../hooks/useAnimationSettings';
 
 export const WavePattern = () => {
+  const { enabled, transition } = useAnimationSettings();
   return (
-    <div className="fixed inset-0 bg-gradient-to-b from-black via-gray-800 to-black overflow-hidden">
-      {Array.from({ length: 6 }).map((_, i) => (
+    <div className="fixed inset-0 bg-black overflow-hidden">
+      {enabled && Array.from({ length: 4 }).map((_, i) => (
         <motion.div
           key={i}
-          className="absolute inset-0"
+          className="absolute inset-0 will-change-transform"
           style={{
             border: `${2 + i}px solid rgba(255, 255, 255, ${0.05 - i * 0.008})`,
             borderRadius: '30%',
@@ -15,10 +17,10 @@ export const WavePattern = () => {
           }}
           animate={{
             rotate: 360,
-            scale: [1, 1.05, 1],
+            scale: 1,
           }}
           transition={{
-            duration: 20 + i * 2,
+            duration: 25 + i * 3,
             repeat: Infinity,
             ease: "linear",
             delay: i * -3,
@@ -27,13 +29,13 @@ export const WavePattern = () => {
       ))}
       
       
-      {Array.from({ length: 3 }).map((_, i) => (
+      {enabled && Array.from({ length: 3 }).map((_, i) => (
         <motion.div
           key={`float-${i}`}
           className="absolute w-96 h-96 rounded-full"
           style={{
             background: `radial-gradient(circle at center, rgba(${
-              i === 0 ? '147, 51, 234' : i === 1 ? '79, 70, 229' : '139, 92, 246'
+              i === 0 ? '147, 51, 234' : i === 1 ? '79, 70, 229' : '50, 2, 246'
             }, 0.15) 0%, transparent 70%)`,
             left: `${i * 30}%`,
             top: `${i * 20}%`,

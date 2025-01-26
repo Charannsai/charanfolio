@@ -1,15 +1,13 @@
 import { motion } from 'framer-motion';
-import { BinaryRings } from '../backgrounds/BinaryRings'
 import Navigation from '../components/Navigation'
 import { Mail, Github, Linkedin, Instagram, SendHorizontal, Sparkles } from 'lucide-react';
 
 const ContactPage = () => {
   
     return (
-      <div>
+      <div className='bg-black'>
         <Navigation/>
         <section className="min-h-screen relative overflow-hidden bg-transparent mt-14">
-        <BinaryRings/>
         <div className="absolute inset-0 overflow-hidden">
           {[...Array(20)].map((_, i) => (
             <motion.div

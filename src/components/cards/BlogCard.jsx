@@ -10,13 +10,13 @@ const fadeInUp = {
 
 const posts = [
   {
-    title: "How AI Changed My Life",
-    excerpt: "AI has transformed my workflow and thought process. From automating tasks to exploring machine learning algorithms...",
-    date: "Oct 20, 2024",
+    title: "Cyber Crime Chronicles Protecting Yourself from Financial Fraud (My Research Paper)",
+    excerpt: "Cybercrime, particularly financial fraud, is an ever-growing threat in today's digital world. In my research, I explore the various forms..",
+    date: "Oct 12, 2024",
     readTime: "5 min read",
     content:
-      "AI has revolutionized the way I work and think. It started with simple tools for task automation, but over time, I began to explore AI-powered recommendations, intelligent chatbots, and machine learning algorithms. These innovations have made my processes more efficient and opened my eyes to the future of technology. As a developer, AI has influenced how I approach problem-solving, providing new avenues for research and creativity. It’s no longer just a tool but a partner in innovation, helping me to grow both professionally and personally.",
-    image: "https://images.pexels.com/photos/8438918/pexels-photo-8438918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "In today’s digital world, the internet offers us immense convenience and opportunities—from online shopping and banking to social networking and job searching. However, this convenience also comes with a dark side. Cybercrime, particularly financial fraud, has become one of the most significant threats we face online. According to recent reports, financial fraud is on the rise, with cybercriminals becoming more sophisticated in their tactics. In my latest research, I explore the world of cybercrime and provide practical strategies to protect yourself from financial fraud. This blog post aims to highlight some of the key insights and preventive measures that everyone should adopt to safeguard their financial security in the digital age.The Growing Threat of Financial Fraud Cybercriminals are constantly evolving their methods to exploit vulnerabilities in both individual behaviors and online systems. Financial fraud can take many forms, from phishing scams and identity theft to ransomware attacks and online banking fraud. These fraudulent activities not only jeopardize your financial well-being but also harm your reputation and personal security. In 2023 alone, the total financial losses from cybercrime were estimated to be in the billions of dollars, and the number continues to grow year after year. With more personal and financial data being shared online than ever before, cybercriminals have a wealth of opportunities to strike. As a result, it’s crucial to stay informed about the latest threats and take proactive steps to protect yourself from financial fraud.",
+    image: "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
   {
     title: "Why Freelancing is a Great Way to Kickstart Your Career",
@@ -33,8 +33,17 @@ const posts = [
     date: "Nov 18, 2024",
     readTime: "7 min read",
     content:
-      "Participating in a hackathon is one of the most exhilarating experiences of my life. In the 2024 Hack-Arena, I had the chance to work with talented individuals, brainstorm creative solutions, and build a project under time pressure. It was a thrilling challenge to conceptualize and develop our project from scratch. The collaboration, problem-solving, and learning that happened over those intense hours taught me invaluable skills, especially in rapid prototyping and innovation. I also got feedback from industry juries, which helped refine our approach. Hackathons push you to think outside the box and grow as a developer.",
+    "Participating in a hackathon is one of the most exhilarating experiences of my life. In the 2024 Hack-Arena, I had the chance to work with talented individuals, brainstorm creative solutions, and build a project under time pressure. It was a thrilling challenge to conceptualize and develop our project from scratch. The collaboration, problem-solving, and learning that happened over those intense hours taught me invaluable skills, especially in rapid prototyping and innovation. I also got feedback from industry juries, which helped refine our approach. Hackathons push you to think outside the box and grow as a developer.",
     image: "/assets/hackathon.jpg",
+  },
+  {
+    title: "How AI Changed My Life",
+    excerpt: "AI has transformed my workflow and thought process. From automating tasks to exploring machine learning algorithms...",
+    date: "Nov 30, 2024",
+    readTime: "5 min read",
+    content:
+      "AI has revolutionized the way I work and think. It started with simple tools for task automation, but over time, I began to explore AI-powered recommendations, intelligent chatbots, and machine learning algorithms. These innovations have made my processes more efficient and opened my eyes to the future of technology. As a developer, AI has influenced how I approach problem-solving, providing new avenues for research and creativity. It’s no longer just a tool but a partner in innovation, helping me to grow both professionally and personally.",
+    image: "https://images.pexels.com/photos/8438918/pexels-photo-8438918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   },
 ];
 

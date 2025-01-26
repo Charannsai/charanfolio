@@ -12,7 +12,8 @@ const PageLayout = ({ children, title, description }) => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className="relative z-10 container mx-auto px-4"
+        transition={{ duration: 0.3 }}
+        className="relative z-10 container mx-auto px-4 layout-container will-change-transform"
       >
         {title && (
           <motion.h1 

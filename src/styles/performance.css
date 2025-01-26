@@ -1,0 +1,22 @@
+/* Performance optimizations for animations */
+.will-change-transform {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  translate: 0;
+  contain: layout style paint;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Reduce animation complexity for better performance */
+@media (prefers-reduced-motion: reduce) {
+  .animate-transform {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}

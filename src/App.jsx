@@ -1,23 +1,32 @@
-import {Routes, Route, BrowserRouter} from 'react-router-dom'
-import Hero from './pages/Hero'
-import About from './pages/About'
-import Works from './pages/Works'
-import Blogs from './pages/Blog'
-import Contact from './pages/Contact'
+import {Routes, Route} from 'react-router-dom'
+import { lazy, Suspense } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { LoadingSpinner } from './components/LoadingSpinner'
 import { CustomScrollbar } from './components/CustomScrollbar'
+import './styles/performance.css'
+
+const Hero = lazy(() => import('./pages/Hero'))
+const About = lazy(() => import('./pages/About'))
+const Works = lazy(() => import('./pages/Works'))
+const Blogs = lazy(() => import('./pages/Blog'))
+const Contact = lazy(() => import('./pages/Contact'))
+
 function App() {
- 
   return (
-    <>
-        <Routes>
-          <Route path='/' element={<Hero/>}/>
-          <Route path='/about' element={<About/>}/>
-          <Route path='/works' element={<Works/>}/>
-          <Route path='/blog' element={<Blogs/>}/>
-          <Route path='/contact' element={<Contact/>}/>
-        </Routes>
-    <CustomScrollbar/>
-    </>
+    <div className="app-container">
+      <AnimatePresence mode="wait">
+        <Suspense fallback={<LoadingSpinner/>}>
+          <Routes>
+            <Route path="/" element={<Hero/>}/>
+            <Route path="/about" element={<About/>}/>
+            <Route path="/works" element={<Works/>}/>
+            <Route path="/blog" element={<Blogs/>}/>
+            <Route path="/contact" element={<Contact/>}/>
+          </Routes>
+        </Suspense>
+      </AnimatePresence>
+      <CustomScrollbar/>
+    </div>
   )
 }
 

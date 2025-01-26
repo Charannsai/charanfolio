@@ -47,7 +47,7 @@ export default function Skills() {
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
                     transition={{ duration: 1, delay: 0.5 }}
-                    className="h-full rounded-full bg-purple-500"
+                    className="h-full rounded-full bg-gradient-to-r from-green-400 to-green-600"
                   ></motion.div>
                 </div>
               </div>
