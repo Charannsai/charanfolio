@@ -7,7 +7,7 @@ import Navigation from '../components/Navigation';
 
 
 const BlogSection = React.lazy(() => import('../components/cards/BlogCard'));
-const ContactSection = React.lazy(() => import('../components/cards/ContactCard'));
+const ContactCard = React.lazy(() => import('../components/cards/ContactCard'));
 const Skills = React.lazy(() => import('../components/cards/Skills'));
 
 const fadeInUp = {
@@ -138,7 +138,7 @@ export default function Hero() {
           </Suspense>
         </div>
           <Suspense fallback={<div>Loading Contact...</div>}>
-            <ContactSection />
+            <ContactCard />
           </Suspense>
       </section>
     </PageLayout>
