@@ -7,7 +7,8 @@ import {
   Server, 
   Wrench, 
   ArrowRight, 
-  ExternalLink 
+  ExternalLink, 
+  Cpu
 } from "lucide-react";
 import { GridPattern } from "../backgrounds/GridPattern";
 import Navigation from "../components/Navigation";
@@ -21,9 +22,15 @@ const skillCategories = [
     color: "bg-gradient-to-r from-purple-400 to-purple-600",
   },
   {
+    title: "Machine Learning",
+    icon: <Cpu className="w-6 h-6" />,
+    skills: ["Supervised", "Unsupervised", "Reinforcement Learning", "Deep Learning"],
+    color: "bg-gradient-to-r from-green-400 to-orange-600",
+  },
+  {
     title: "Libraries",
     icon: <Server className="w-6 h-6" />,
-    skills: ["React"],
+    skills: ["React","pyTorch", "pandas", "numpy"],
     color: "bg-gradient-to-r from-red-400 to-red-600",
   },
   {
@@ -44,6 +51,7 @@ const skillCategories = [
     skills: ["Tailwind CSS", "WebRTC", "Firebase", "Node.js"],
     color: "bg-gradient-to-r from-orange-400 to-orange-600",
   },
+  
 ];
 
 const SkillCard = ({ category, index }) => (
