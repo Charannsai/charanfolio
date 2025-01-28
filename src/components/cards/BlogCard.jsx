@@ -10,7 +10,7 @@ const fadeInUp = {
 
 const posts = [
   {
-    title: "Cyber Crime Chronicles Protecting Yourself from Financial Fraud (My Research Paper)",
+    title: "Cyber Crime Chronicles Protecting Yourself from Financial Fraud",
     excerpt: "Cybercrime, particularly financial fraud, is an ever-growing threat in today's digital world. In my research, I explore the various forms..",
     date: "Oct 12, 2024",
     readTime: "5 min read",
