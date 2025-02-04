@@ -41,16 +41,16 @@ const LatestUpdate = ({ update }) => {
 
 export default function Home({ setActiveSection, theme, toggleTheme }) {
   const socialLinks = [
-    { icon: <Mail className="w-5 h-5" />, href: '#' },
+    { icon: <Mail className="w-5 h-5" />, href: 'mailto:pathurisai31@gmail.com'},
     { icon: <Instagram className="w-5 h-5" />, href: '#' },
-    { icon: <Linkedin className="w-5 h-5" />, href: '#' },
+    { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/charan-sai-pathuri-177a9a282/' },
     { icon: <Facebook className="w-5 h-5" />, href: '#' },
-    { icon: <Github className="w-5 h-5" />, href: '#' }
+    { icon: <Github className="w-5 h-5" />, href: 'https://github.com/Charannsai' }
   ]
 
   const latestUpdates = [
     {
-      text: "Joined as ML an Intern at AICTE",
+      text: "Joined as ML Intern at AICTE",
       date: "January 2025",
       link: "https://linkedin.com/in/charan-sai-pathuri-177a9a282/"
     },
@@ -94,6 +94,12 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
               >
                 {theme === 'dark' ? <Sun className="w-4 h-4 sm:w-5 sm:h-5" /> : <Moon className="w-4 h-4 sm:w-5 sm:h-5" />}
               </button>
+              <button
+                className="glass-card px-4 sm:px-24 py-2 mt-2 transition-transform duration-200 hover:scale-105 text-sm sm:text-base"
+                onClick={() => setActiveSection('contact')}
+              >
+                Let's Talk
+              </button>
             </div>
           </div>
         </div>
@@ -105,14 +111,14 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
             className="col-span-1 sm:col-span-3 glass-card p-4 sm:p-6 cursor-pointer transition-transform  duration-300 hover:scale-105"
             onClick={() => setActiveSection('about')}
           >
-            <h3 className="text-xl sm:text-2xl mb-2 dark:text-white text-zinc-900 text-center">About</h3>
+            <h3 className="text-xl sm:text-2xl mb-2 dark:text-white font-semibold text-zinc-900 text-center">About</h3>
           </div>
 
           <div
             className="col-span-1 sm:col-span-3 glass-card p-4 sm:p-6 cursor-pointer text-center transition-transform duration-300 hover:scale-105"
             onClick={() => setActiveSection('blog')}
           >
-            <h3 className="text-xl sm:text-2xl mb-2 dark:text-white text-zinc-900">Blogs</h3>
+            <h3 className="text-xl sm:text-2xl mb-2 font-semibold dark:text-white text-zinc-900">Blogs</h3>
           </div>
 
           <div className="col-span-1 sm:col-span-6 glass-card p-4 sm:p-8">
