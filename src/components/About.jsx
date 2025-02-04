@@ -18,11 +18,13 @@ export default function About() {
         className="glass-card p-8"
       >
         <h2 className="section-title">About Me</h2>
-        <p className="text-zinc-400 mb-6">
+        <img src="/imgg2.png" alt="Image" className=''/>
+        <p className="text-zinc-400 mb-2">
           A passionate developer with a keen eye for design and a drive for creating 
           seamless user experiences. Combining technical expertise with creative problem-solving 
           to build innovative digital solutions.
         </p>
+        
         <div className="flex flex-wrap gap-3">
           {skills.map((skill) => (
             <span key={skill} className="px-4 py-2 glass-card text-sm">
@@ -38,8 +40,8 @@ export default function About() {
         transition={{ delay: 0.2 }}
         className="glass-card p-8"
       >
-        <h2 className="section-title">Experience</h2>
-        <div className="space-y-6">
+        <h2 className="section-title mb-2">Experience</h2>
+        <div className="space-y-6 ">
           {[1, 2, 3].map((i) => (
             <div key={i} className="glass-card p-4">
               <h3 className="font-medium">Senior Developer</h3>

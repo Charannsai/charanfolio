@@ -55,8 +55,8 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
       link: "https://linkedin.com/in/charan-sai-pathuri-177a9a282/"
     },
     {
-      text: "Completed full-stack development bootcamp certification",
-      date: "September 2023",
+      text: "Published an Web Application for JNTUH Students",
+      date: "December 2024",
       link: "https://example.com/certification"
     }
   ]
@@ -88,17 +88,17 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
                 View Works
               </button>
               <button
+                className="glass-card px-4 sm:px-24 py-2 mt-2 transition-transform duration-200 hover:scale-105 text-sm sm:text-base"
+                onClick={() => setActiveSection('contact')}
+              >
+                Let's Talk
+              </button>
+              <button
                 onClick={toggleTheme}
                 className="glass-card p-3 sm:p-4 mt-2 transition-transform duration-200 hover:scale-105"
                 aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {theme === 'dark' ? <Sun className="w-4 h-4 sm:w-5 sm:h-5" /> : <Moon className="w-4 h-4 sm:w-5 sm:h-5" />}
-              </button>
-              <button
-                className="glass-card px-4 sm:px-24 py-2 mt-2 transition-transform duration-200 hover:scale-105 text-sm sm:text-base"
-                onClick={() => setActiveSection('contact')}
-              >
-                Let's Talk
               </button>
             </div>
           </div>
