@@ -2,11 +2,11 @@ import { motion } from 'framer-motion'
 
 export default function About() {
   const skills = [
-    "Frontend Development",
+    "Full Stack Development",
+    "Machine Learning",
     "UI/UX Design",
     "React.js",
     "Node.js",
-    "TypeScript",
     "Tailwind CSS"
   ]
 
@@ -42,13 +42,33 @@ export default function About() {
       >
         <h2 className="section-title mb-2">Experience</h2>
         <div className="space-y-6 ">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="glass-card p-4">
-              <h3 className="font-medium">Senior Developer</h3>
-              <p className="text-sm text-zinc-400">Company {i}</p>
-              <p className="text-sm text-zinc-500">2020 - Present</p>
+         
+            <div className="glass-card p-4">
+              <h3 className="font-medium">AI Intern</h3>
+              <p className="text-sm text-zinc-400 ">AICTE</p>
+              <p className="text-sm text-zinc-500  mb-2">January 2025 - Present</p>
+              <p className="text-sm text-zinc-400">
+               Currently working on a project which predicts solar power output using regression models.
+              </p>
+              
             </div>
-          ))}
+            <div className="glass-card p-4">
+              <h3 className="font-medium">Freelance Web Developer</h3>
+              <p className="text-sm text-zinc-500  mb-2">November 2022 - Present</p>
+              <p className="text-sm text-zinc-400">
+                Collaborated with multiple clients and delivered projects by developing on time.
+              </p>
+              
+            </div>
+            <div className="glass-card p-4">
+              <h3 className="font-medium">Research Intern</h3>
+              <p className="text-sm text-zinc-400 ">BharatUp Skill</p>
+              <p className="text-sm text-zinc-500  mb-2">October 2023 - Present</p>
+              <p className="text-sm text-zinc-400">
+               Worked as a research intern and analyzed various marketing strategies.
+              </p>
+              
+            </div>
         </div>
       </motion.div>
     </div>

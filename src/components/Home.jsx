@@ -42,9 +42,9 @@ const LatestUpdate = ({ update }) => {
 export default function Home({ setActiveSection, theme, toggleTheme }) {
   const socialLinks = [
     { icon: <Mail className="w-5 h-5" />, href: 'mailto:pathurisai31@gmail.com'},
-    { icon: <Instagram className="w-5 h-5" />, href: '#' },
+    { icon: <Instagram className="w-5 h-5" />, href: 'https://instagram.com/Saircasticc' },
     { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/charan-sai-pathuri-177a9a282/' },
-    { icon: <Facebook className="w-5 h-5" />, href: '#' },
+    { icon: <Twitter className="w-5 h-5" />, href: '#' },
     { icon: <Github className="w-5 h-5" />, href: 'https://github.com/Charannsai' }
   ]
 
@@ -55,9 +55,9 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
       link: "https://linkedin.com/in/charan-sai-pathuri-177a9a282/"
     },
     {
-      text: "Published an Web Application for JNTUH Students",
+      text: "Published a Web Application for JNTUH Students",
       date: "December 2024",
-      link: "https://example.com/certification"
+      link: "https://jntuhub.vercel.app"
     }
   ]
 
@@ -121,18 +121,21 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
             <h3 className="text-xl sm:text-2xl mb-2 font-semibold dark:text-white text-zinc-900">Blogs</h3>
           </div>
 
-          <div className="col-span-1 sm:col-span-6 glass-card p-4 sm:p-8">
-            <div className="flex justify-center gap-4 sm:gap-6">
+          <div className="col-span-1 sm:col-span-6 glass-card p-4 sm:p-4">
+            
+            <div className="flex justify-center gap-4 sm:gap-8">
               {socialLinks.map((link, index) => (
                 <a
-                  key={index}
-                  href={link.href}
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all duration-200 hover:scale-110"
+                key={index}
+                href={link.href}
+                className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all duration-200 hover:scale-110"
                 >
                   {link.icon}
                 </a>
               ))}
+              
             </div>
+            <p className='text-center mt-4 text-zinc-400'>Stay Connected with me!</p>
           </div>
         </div>
 
@@ -183,6 +186,7 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
               </div>
               <div
                 className="glass-card p-3 sm:p-4 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
+                onClick={() => src='/Resumee.pdf'}
               >
                 <span className="text-sm sm:text-base dark:text-white text-zinc-900">Resume</span>
               </div>

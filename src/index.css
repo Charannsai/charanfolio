@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  --card-shadow: 0 8px 32px 0 rgba(51, 51, 51, 0.1);
 }
 
 .glass-card {
@@ -33,7 +33,7 @@
 }
 
 .back-button {
-  @apply fixed top-16 left-10 w-8 h-8 rounded-full 
+  @apply fixed top-6 left-10 w-8 h-8 rounded-full 
          dark:bg-zinc-800/50 bg-zinc-200
          dark:hover:bg-zinc-700/50 hover:bg-zinc-300
          transition-all duration-300
