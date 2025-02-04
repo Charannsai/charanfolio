@@ -137,7 +137,7 @@ export default function Blog() {
                 <span>{selectedPost.date}</span>
                 <div className="flex gap-2">
                   {selectedPost.tags.map((tag) => (
-                    <span key={tag} className="px-2 py-1 bg-zinc-800/50 rounded-full">
+                    <span key={tag} className="px-2 py-1 text-zinc-500 dark:text-zinc-200 dark:bg-zinc-800/50 bg-zinc-200 border-zinc-400 rounded-full">
                       {tag}
                     </span>
                   ))}
@@ -151,7 +151,7 @@ export default function Blog() {
             </article>
             <button 
               onClick={() => setSelectedPost(null)}
-              className="mt-8 text-zinc-400 hover:text-white transition-colors"
+              className="mt-8 text-zinc-400 hover:text-zinc-600 transition-colors"
             >
               ← Back to posts
             </button>
@@ -167,22 +167,22 @@ export default function Blog() {
               <motion.div
                 key={post.id}
                 whileHover={{ scale: 1.01 }}
-                className="glass-card p-6 cursor-pointer"
+                className="glass-card p-6 cursor-pointer hover:font-semibold hover:shadow-lg transition-all duration-200 hover:blur-none"
                 onClick={() => setSelectedPost(post)}
               >
-                <h3 className="text-xl font-display mb-2">{post.title}</h3>
+                <h3 className="text-xl font-mono mb-2 ">{post.title}</h3>
                 <div className="flex items-center gap-4 text-zinc-400 text-sm mb-4">
                   <span>{post.date}</span>
                   <div className="flex gap-2">
                     {post.tags.map((tag) => (
-                      <span key={tag} className="px-2 py-1 bg-zinc-800/50 rounded-full text-xs">
+                      <span key={tag} className="px-2 py-1 text-zinc-500 dark:text-zinc-200 border border-zinc-400 rounded-full text-xs">
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
                 <p className="text-zinc-400 mb-4">{post.excerpt}</p>
-                <span className="text-sm text-zinc-500 hover:text-white transition-colors">
+                <span className="text-sm text-zinc-400 hover:text-zinc-600 transition-colors">
                   Read more →
                 </span>
               </motion.div>

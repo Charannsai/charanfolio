@@ -5,14 +5,14 @@
 @tailwind utilities;
 
 :root {
-  --card-shadow: 0 8px 32px 0 rgba(51, 51, 51, 0.1);
+  --card-shadow: 0 8px 32px 0 rgba(0,0,0, 0.1);
 }
 
 .glass-card {
   @apply dark:bg-zinc-800/30 bg-white/70 backdrop-blur-none rounded-2xl 
          dark:border-zinc-700/20 border-zinc-200/50 
          dark:text-zinc-100 text-zinc-800
-         border;
+         border hover:shadow-lg hover:bg-white/100;
   box-shadow: var(--card-shadow);
 }
 
@@ -33,7 +33,7 @@
 }
 
 .back-button {
-  @apply fixed top-6 left-10 w-8 h-8 rounded-full 
+  @apply fixed top-24 left-56 w-14 h-14 rounded-full 
          dark:bg-zinc-800/50 bg-zinc-200
          dark:hover:bg-zinc-700/50 hover:bg-zinc-300
          transition-all duration-300

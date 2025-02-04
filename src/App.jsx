@@ -38,16 +38,42 @@ function App() {
         animate={{ scale: 1, opacity: 1 }}
         className="w-full max-w-4xl p-4 relative"
       >
+        {/* Navigation Controls */}
         {activeSection !== 'home' && (
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="back-button"
-            onClick={() => setActiveSection('home')}
-          >
-            <FaArrowLeft size={14} />
-          </motion.button>
+          <div className="fixed top-4 left-4 right-4 md:top-8 md:left-8 md:right-8 flex justify-between items-center z-50">
+            <motion.button
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setActiveSection('home')}
+              className="rounded-full p-3 dark:bg-zinc-800/30 bg-zinc-400/70 backdrop-blur-sm
+                        border dark:border-zinc-700/20 border-zinc-200/50 
+                        dark:text-zinc-100 text-zinc-800
+                        transition-all duration-200 hover:scale-105"
+              aria-label="Go back to home"
+            >
+              <FaArrowLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+            </motion.button>
+
+            <motion.button
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={toggleTheme}
+              className="rounded-full p-3 dark:bg-zinc-800/30 bg-zinc-400/70 backdrop-blur-sm
+                        border dark:border-zinc-700/20 border-zinc-200/50 
+                        dark:text-zinc-100 text-zinc-800
+                        transition-all duration-200 hover:scale-105"
+              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {theme === 'dark' ? 
+                <FaSun className="w-4 h-4 sm:w-5 sm:h-5" /> : 
+                <FaMoon className="w-4 h-4 sm:w-5 sm:h-5" />
+              }
+            </motion.button>
+          </div>
         )}
+
         <AnimatePresence mode="wait">
           <motion.div
             key={activeSection}
