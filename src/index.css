@@ -1,56 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-::-webkit-scrollbar {
-  display: none;
+:root {
+  --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
 }
 
-
-@layer base {
-    html {
-      scroll-behavior: smooth;
-    }
-  
-    body {
-      @apply text-neutral-900 bg-white antialiased;
-    }
-  }
-  
-  .mask-image {
-    mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 95%);
-  }
-  
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.glass-card {
+  @apply dark:bg-zinc-800/30 bg-white/70 backdrop-blur-none rounded-2xl 
+         dark:border-zinc-700/20 border-zinc-200/50 
+         dark:text-zinc-100 text-zinc-800
+         border;
+  box-shadow: var(--card-shadow);
 }
 
-.animate-scroll {
-  animation: scroll 30s linear infinite;
+.glass-card:hover {
+  backdrop-filter: none;
+}
+.font-cursive {
+  font-family: 'Dancing Script', cursive;
 }
 
-.project-card {
-  width: 300px; /* Default width */
+.font-display {
+  font-family: 'Playfair Display', serif;
 }
 
-@media (max-width: 768px) {
-  .project-card {
-    width: 200px; /* Smaller width for mobile */
-  }
+.back-button {
+  @apply absolute top-0 left-0 w-8 h-8 rounded-full 
+         dark:bg-zinc-800/50 bg-zinc-200
+         dark:hover:bg-zinc-700/50 hover:bg-zinc-300
+         transition-all duration-300
+         flex items-center justify-center 
+         dark:text-zinc-400 text-zinc-600
+         dark:hover:text-white hover:text-zinc-800
+         dark:border-zinc-700/20 border-zinc-200/50;
 }
 
-@media (max-width: 480px) {
-  .project-card {
-    width: 150px; /* Even smaller for smaller screens */
-  }
+
+.light {
+  @apply bg-zinc-100;
+}
+
+
+.dark {
+  @apply bg-zinc-950;
+}
+
+
+.prose {
+  @apply prose-zinc prose-headings:font-display 
+         prose-p:text-zinc-600 dark:prose-p:text-zinc-400 
+         prose-a:text-blue-500 hover:prose-a:text-blue-400 
+         prose-strong:text-zinc-900 dark:prose-strong:text-zinc-100 
+         prose-code:text-zinc-800 dark:prose-code:text-zinc-200 
+         prose-pre:bg-zinc-100 dark:prose-pre:bg-zinc-800;
+}
+
+.dark .prose {
+  @apply prose-invert;
 }
