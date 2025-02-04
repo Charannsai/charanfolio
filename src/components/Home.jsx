@@ -50,9 +50,9 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
 
   const latestUpdates = [
     {
-      text: "Launched a new e-commerce platform with React and Node.js",
-      date: "October 2023",
-      link: "https://example.com/ecommerce"
+      text: "Joined as ML an Intern at AICTE",
+      date: "January 2025",
+      link: "https://linkedin.com/in/charan-sai-pathuri-177a9a282/"
     },
     {
       text: "Completed full-stack development bootcamp certification",
@@ -71,7 +71,7 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
         <img 
           src="/imgg2.png"
           alt="Profile"
-          className="w-full h-full object-cover mt-12 relative z-10"
+          className="w-full h-full object-cover mt-12 relative z-10 shadow-lg"
         />
       </div>
 
@@ -102,14 +102,14 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
       <div className="flex flex-col gap-4">
         <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-start">
           <div
-            className="col-span-1 sm:col-span-3 glass-card p-4 sm:p-6 cursor-pointer transition-transform duration-200 hover:scale-102"
+            className="col-span-1 sm:col-span-3 glass-card p-4 sm:p-6 cursor-pointer transition-transform  duration-300 hover:scale-105"
             onClick={() => setActiveSection('about')}
           >
             <h3 className="text-xl sm:text-2xl mb-2 dark:text-white text-zinc-900 text-center">About</h3>
           </div>
 
           <div
-            className="col-span-1 sm:col-span-3 glass-card p-4 sm:p-6 cursor-pointer text-center transition-transform duration-200 hover:scale-102"
+            className="col-span-1 sm:col-span-3 glass-card p-4 sm:p-6 cursor-pointer text-center transition-transform duration-300 hover:scale-105"
             onClick={() => setActiveSection('blog')}
           >
             <h3 className="text-xl sm:text-2xl mb-2 dark:text-white text-zinc-900">Blogs</h3>
@@ -170,13 +170,13 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
 
             <div className="grid grid-cols-2 gap-4">
               <div
-                className="glass-card p-3 sm:p-4 text-center cursor-pointer transition-transform duration-200 hover:scale-102"
+                className="glass-card p-3 sm:p-4 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
                 onClick={() => setActiveSection('works')}
               >
                 <span className="text-sm sm:text-base dark:text-white text-zinc-900">Works</span>
               </div>
               <div
-                className="glass-card p-3 sm:p-4 text-center cursor-pointer transition-transform duration-200 hover:scale-102"
+                className="glass-card p-3 sm:p-4 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
               >
                 <span className="text-sm sm:text-base dark:text-white text-zinc-900">Resume</span>
               </div>
@@ -184,7 +184,7 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
 
 
             <div
-              className="glass-card p-4 sm:p-6 text-center cursor-pointer transition-transform duration-200 hover:scale-102"
+              className="glass-card p-4 sm:p-6 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
               onClick={() => setActiveSection('contact')}
             >
               <span className="text-sm sm:text-base dark:text-white text-zinc-900">Contact Me</span>

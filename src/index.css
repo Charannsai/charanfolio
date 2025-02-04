@@ -16,6 +16,11 @@
   box-shadow: var(--card-shadow);
 }
 
+::selection {
+  color: white;
+  background: rgba(47, 189, 255, 0.76);
+}
+
 .glass-card:hover {
   backdrop-filter: none;
 }
