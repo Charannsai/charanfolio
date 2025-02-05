@@ -8,33 +8,34 @@ export default function Works() {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "A modern e-commerce platform built with React and Node.js",
+      title: "Predicting Solar Power Output",
+      description: "Predicting solar power output using regression models",
       image: "https://via.placeholder.com/400x300",
-      tags: ["React", "Node.js", "MongoDB"],
-      github: "https://github.com",
-      live: "https://demo.com",
-      details: "A comprehensive e-commerce solution featuring user authentication, product management, cart functionality, and secure payments through Stripe integration. The platform includes an admin dashboard for inventory management and order processing."
+      tags: ["React", "Tailwind", "Framer Motion"],
+      github: "https://github.com/Charannsai/Solar-power-prediction",
+      live: "https://github.com/Charannsai/Solar-Power-Prediction/blob/main/solarpowerprediction.ipynb",
+      details: "This Project is a part of my internship at AICTE. The project aims to predict the solar power output using regression models based on historical data by considering various factors like weather conditions, time of the day, and geographical location."
+      
     },
     {
       id: 2,
-      title: "Portfolio Dashboard",
-      description: "Elegant portfolio template with dark mode",
+      title: "JNTUHUB",
+      description: "A platform where students can access all the resources",
       image: "https://via.placeholder.com/400x300",
-      tags: ["React", "Tailwind", "Framer Motion"],
+      tags: ["React","Tailwind CSS", "Node.js", "POSTGRESQL"],
       github: "https://github.com",
       live: "https://demo.com",
-      details: "A beautiful and responsive portfolio template featuring smooth animations, dark/light theme switching, and an elegant design. Built with React and styled using Tailwind CSS, with animations powered by Framer Motion."
+      details: "A comprehensive resource accessibility solution featuring notes, syllabus, academic year plans. The platform includes an NLP based Chatbot Model dashboard where it resolves all possible queries asked by the students regarding learning and academics."
     },
     {
       id: 3,
-      title: "Task Management App",
-      description: "Collaborative task management solution",
+      title: "KaaryaLink",
+      description: "A Collabarative, Community Driven Web Application",
       image: "https://via.placeholder.com/400x300",
       tags: ["Next.js", "Prisma", "PostgreSQL"],
       github: "https://github.com",
       live: "https://demo.com",
-      details: "A full-featured task management application with real-time updates, team collaboration features, and progress tracking. Includes features like task assignment, due dates, comments, and file attachments."
+      details: "A semi-featured(Still Working) task management application with real-time updates, team collaboration features, and progress tracking. Includes features like task assignment, due dates, comments, and file attachments."
     }
   ]
 
