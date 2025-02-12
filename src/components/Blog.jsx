@@ -63,7 +63,7 @@ export default function Blog() {
                 return <span key={index} className="text-[#D19A66] dark:text-[#F78C6C]">{token}</span>; // Orange for numbers
               }
               if (token.match(/^[a-z][A-Za-z0-9]*$/)) {
-                return <span key={index} className="text-[#DCDCDC] dark:text-[#FFFFFF]">{token}</span>; // White for variables
+                return <span key={index} className="text-[#c57f7f] dark:text-[#c57f7f]">{token}</span>; // White for variables
               }
               if (token.match(/^\s+$/)) {
                 return <span key={index}>{token}</span>; // Keep spacing intact
@@ -141,7 +141,7 @@ export default function Blog() {
             exit={{ opacity: 0, y: -20 }}
             className="p-8"
           >
-            <article className="prose prose-invert max-w-none text-justify blog-content">
+            <article className="prose prose-invert max-w-none md:text-justify  blog-content">
               <h1 className="text-3xl text-center font-display mb-2 ">{selectedPost.title}</h1>
               <div className="flex items-center gap-4 justify-center text-center text-zinc-400 text-sm mb-8">
                 <span>{selectedPost.date}</span>
