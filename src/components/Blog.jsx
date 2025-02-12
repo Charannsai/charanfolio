@@ -98,8 +98,8 @@ export default function Blog() {
           animate={{ opacity: 1 }}
           onClick={() => copyToClipboard(children, codeId)}
           className={`
-            absolute top-12 right-1 
-            opacity-0 group-hover:opacity-100
+            absolute top-12 right-3 hidden group-hover:flex items-center gap-1.5
+            opacity-0 hover:opacity-100
             transition-all duration-200 
             rounded-md
             p-1.5
@@ -119,16 +119,16 @@ export default function Blog() {
     )
   }
   return (
-    <div className="space-y-6 mt-10">
+    <div className="mt-10">
       <AnimatePresence>
         {showToast && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed bottom-4 right-4 bg-green-500/20 z-40 text-green-400 px-4 py-2 rounded-md border border-green-500/30"
+            className="fixed bottom-4 right-4 bg-green-900 dark:bg-green-500/20 z-50 text-green-400 px-4 py-2 rounded-md border border-green-500/30"
           >
-            Code copied to clipboard!
+            Copied to clipboard!
           </motion.div>
         )}
       </AnimatePresence>
@@ -139,7 +139,7 @@ export default function Blog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="p-8"
+            className="p-8 glass-card mt-16"
           >
             <article className="prose prose-invert max-w-none md:text-justify  blog-content">
               <h1 className="text-3xl text-center font-display mb-2 ">{selectedPost.title}</h1>
