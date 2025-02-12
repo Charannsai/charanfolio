@@ -163,13 +163,13 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
               <div className="flex justify-around">
                 <div className="text-center">
                   <h3 className="text-xl sm:text-3xl font-bold mb-1 dark:text-white text-zinc-900">
-                    <CountUp end={15} />+
+                    <CountUp end={20} />+
                   </h3>
                   <p className="text-xs sm:text-base text-zinc-600 dark:text-zinc-500">Projects</p>
                 </div>
                 <div className="text-center">
                   <h3 className="text-xl sm:text-3xl font-bold mb-1 dark:text-white text-zinc-900">
-                    <CountUp end={30} />+
+                    <CountUp end={15} />+
                   </h3>
                   <p className="text-xs sm:text-base text-zinc-600 dark:text-zinc-500">Clients</p>
                 </div>
