@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Kanit', 'sans-serif'],
+        monolisa: ['MonoLisa', 'monospace'],
         display: ['"Playfair Display"', 'serif'],
         cursive: ['"Dancing Script"', 'cursive'],
       },

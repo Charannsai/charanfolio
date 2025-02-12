@@ -3,6 +3,7 @@ import { getBlogPosts } from '../lib/post'
 import { motion, AnimatePresence } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
 import { Copy, Check } from 'lucide-react'
+import { Mail, Instagram, Linkedin, Facebook, Twitter, Moon, Sun, Github } from 'lucide-react'
 
 export default function Blog() {
   const [selectedPost, setSelectedPost] = useState(null)
@@ -23,7 +24,13 @@ export default function Blog() {
       console.error('Failed to copy text: ', err)
     }
   }
-
+  const socialLinks = [
+    { icon: <Mail className="w-5 h-5" />, href: 'mailto:pathurisai31@gmail.com'},
+    { icon: <Instagram className="w-5 h-5" />, href: 'https://instagram.com/Saircasticc' },
+    { icon: <Linkedin className="w-5 h-5" />, href: 'https://www.linkedin.com/in/charan-sai-pathuri-177a9a282/' },
+    { icon: <Twitter className="w-5 h-5" />, href: '#' },
+    { icon: <Github className="w-5 h-5" />, href: 'https://github.com/Charannsai' }
+  ]
   const CodeBlock = ({ children, className }) => {
     const codeId = Math.random().toString(36).substr(2, 9)
     const isActive = copiedStates[codeId]
@@ -119,7 +126,7 @@ export default function Blog() {
     )
   }
   return (
-    <div className="mt-10">
+    <div className="mt-10  ">
       <AnimatePresence>
         {showToast && (
           <motion.div
@@ -135,16 +142,31 @@ export default function Blog() {
 
       <AnimatePresence mode="wait">
         {selectedPost ? (
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             className="p-8 glass-card mt-16"
           >
+           
             <article className="prose prose-invert max-w-none md:text-justify  blog-content">
-              <h1 className="text-3xl text-center font-display mb-2 ">{selectedPost.title}</h1>
+              <h1 className="text-3xl text-center font-monolisa mb-2 ">{selectedPost.title}</h1>
               <div className="flex items-center gap-4 justify-center text-center text-zinc-400 text-sm mb-8">
                 <span>{selectedPost.date}</span>
+                <div className="col-span-12 sm:col-span-6 p-3 sm:p-3 font-monolisa">
+            <div className="flex justify-center gap-4 sm:gap-8 ">
+              {socialLinks.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.href}
+                  className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all duration-200 hover:scale-110"
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          </div>
               </div>
               <ReactMarkdown 
                 className="space-y-4"
@@ -173,10 +195,10 @@ export default function Blog() {
               <motion.div
                 key={post.slug}
                 whileHover={{ scale: 1.01 }}
-                className="glass-card p-6 cursor-pointer hover:font-semibold hover:shadow-lg transition-all duration-200 hover:blur-none"
+                className="glass-card  p-6 cursor-pointer hover:shadow-lg transition-all duration-200 hover:blur-none"
                 onClick={() => setSelectedPost(post)}
               >
-                <h3 className="text-xl font-mono mb-2">{post.title}</h3>
+                <h3 className="text-xl font-monolisa mb-2">{post.title}</h3>
                 <div className="flex items-center gap-4 text-zinc-400 text-sm mb-4">
                   <span>{post.date}</span>
                 </div>

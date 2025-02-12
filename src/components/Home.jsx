@@ -112,9 +112,9 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 ">
         {/* Navigation Cards */}
-        <div className="grid grid-cols-12 gap-2 md:gap-4 items-start">
+        <div className="grid grid-cols-12 gap-2 md:gap-4 items-start ">
           <div
             className="col-span-6 sm:col-span-3 glass-card p-3 sm:p-6 cursor-pointer transition-transform duration-300 hover:scale-105"
             onClick={() => setActiveSection('about')}
@@ -129,8 +129,8 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
             <h3 className="text-lg sm:text-2xl font-semibold dark:text-white text-zinc-900 text-center">Blogs</h3>
           </div>
 
-          <div className="col-span-12 sm:col-span-6 glass-card p-3 sm:p-3">
-            <div className="flex justify-center gap-4 sm:gap-8">
+          <div className="col-span-12 sm:col-span-6 glass-card p-3 sm:p-3 font-monolisa">
+            <div className="flex justify-center gap-4 sm:gap-8 ">
               {socialLinks.map((link, index) => (
                 <a
                   key={index}

@@ -8,10 +8,14 @@
   --card-shadow: 0 8px 32px 0 rgba(0,0,0, 0.1);
 }
 @font-face {
-    font-family: "Monalisa Font";  
-  src: local("Monalisa Font"),
-    url("./fonts/Monolisa\ Font.ttf") format("truetype");
+  font-family: 'MonoLisa';
+  src: url('../src/fonts/MonolisaFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+
+
+
 .glass-card {
   @apply dark:bg-zinc-800/30 bg-white/70 backdrop-blur-none rounded-2xl 
          dark:border-zinc-700/20 border-zinc-200/50 
@@ -21,15 +25,36 @@
 }
 .blog-content pre, 
 .blog-content code {
-    background: none !important; /* Removes background only inside blog */
+    background: none !important; 
     box-shadow: none !important;
     border: none !important;
     margin: 0 !important;
+    font-family: monolisa, monospace;
+
+}
+.prose :is(h1, h2, h3, h4, h5, h6, th) {
+    font-family: inherit !important; 
+    color: inherit !important;
+    line-height: 1.5 !important;
+}
+.prose :is(h3) {
+    font-family: inherit !important;
+    font-weight: lighter !important;
 }
 
-/* Ensure normal code blocks outside the blog retain their styles */
+/* .prose :is(p, a, li, td) {
+    font-family: inherit !important; 
+    font-weight: 400 !important;
+    color: inherit !important; 
+    line-height: 1.5 !important;
+} */
+.prose :is(strong) {
+  font-family: inherit !important; 
+  
+}
+
 pre, code {
-    background: #1e1e1e; /* Dark theme example */
+    background: #1e1e1e; 
     color: #fff;
     padding: 10px;
     border-radius: 5px;
