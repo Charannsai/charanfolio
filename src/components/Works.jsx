@@ -21,9 +21,9 @@ export default function Works() {
       id: 2,
       title: "JNTUHUB",
       description: "A platform where students can access all the resources",
-      image: "https://via.placeholder.com/400x300",
+      image: "https://drive.google.com/file/d/1n5CqfL-UfZOL5BIqPWoIzFeFWz5Speqp/view",
       tags: ["React","Tailwind CSS", "Node.js", "POSTGRESQL"],
-      github: "https://github.com",
+      github: "https://github.com/charannsai/JntuHub",
       live: "https://demo.com",
       details: "A comprehensive resource accessibility solution featuring notes, syllabus, academic year plans. The platform includes an NLP based Chatbot Model dashboard where it resolves all possible queries asked by the students regarding learning and academics."
     },
