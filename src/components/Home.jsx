@@ -70,7 +70,7 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
             <h2 className="font-bold text-center px-2 md:inline-flex hidden">Think.  Code.  Deploy.</h2>
           </div>
           <img 
-            src="/imgg2.png"
+            src="https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/imgg2.png"
             alt="Profile"
             className="w-full h-full object-cover mt-8 md:mt-12 relative z-10 shadow-lg"
           />

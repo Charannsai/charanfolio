@@ -46,8 +46,8 @@ function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setActiveSection('home')}
-              className="rounded-full p-3 dark:bg-zinc-800/30 bg-zinc-400/70 backdrop-blur-sm
-                        border dark:border-zinc-700/20 border-zinc-200/50 
+              className="rounded-full p-3 dark:bg-zinc-800/30 bg-zinc-200/70 backdrop-blur-sm
+                        border border-zinc-700/20 
                         dark:text-zinc-100 text-zinc-800
                         transition-all duration-200 hover:scale-105"
               aria-label="Go back to home"
@@ -60,8 +60,8 @@ function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3 }}
               onClick={toggleTheme}
-              className="rounded-full p-3 dark:bg-zinc-800/30 bg-zinc-400/70 backdrop-blur-sm
-                        border dark:border-zinc-700/20 border-zinc-200/50 
+              className="rounded-full p-3 dark:bg-zinc-800/30 bg-zinc-200/70 backdrop-blur-sm
+                        border border-zinc-700/20  
                         dark:text-zinc-100 text-zinc-800
                         transition-all duration-200 hover:scale-105"
               aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}

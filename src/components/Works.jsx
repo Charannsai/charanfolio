@@ -10,8 +10,8 @@ export default function Works() {
       id: 1,
       title: "Predicting Solar Power Output",
       description: "Predicting solar power output using regression models",
-      image: "https://via.placeholder.com/400x300",
-      tags: ["React", "Tailwind", "Framer Motion"],
+      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/download.png",
+      tags: ["Python", "Machine Learning", "Regression", "Jupyter Notebook"],
       github: "https://github.com/Charannsai/Solar-power-prediction",
       live: "https://github.com/Charannsai/Solar-Power-Prediction/blob/main/solarpowerprediction.ipynb",
       details: "This Project is a part of my internship at AICTE. The project aims to predict the solar power output using regression models based on historical data by considering various factors like weather conditions, time of the day, and geographical location."
@@ -21,7 +21,7 @@ export default function Works() {
       id: 2,
       title: "JNTUHUB",
       description: "A platform where students can access all the resources",
-      image: "https://drive.google.com/file/d/1n5CqfL-UfZOL5BIqPWoIzFeFWz5Speqp/view",
+      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-02-05%20231334.png",
       tags: ["React","Tailwind CSS", "Node.js", "POSTGRESQL"],
       github: "https://github.com/charannsai/JntuHub",
       live: "https://demo.com",
@@ -31,16 +31,16 @@ export default function Works() {
       id: 3,
       title: "KaaryaLink",
       description: "A Collabarative, Community Driven Web Application",
-      image: "https://via.placeholder.com/400x300",
-      tags: ["Next.js", "Prisma", "PostgreSQL"],
+      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-02-12%20145104.png",
+      tags: ["React", "firebase", "nodejs", "PostgreSQL"],
       github: "https://github.com",
       live: "https://demo.com",
-      details: "A semi-featured(Still Working) task management application with real-time updates, team collaboration features, and progress tracking. Includes features like task assignment, due dates, comments, and file attachments."
+      details: "A semi-featured(Still Working) Skill Exchange and task management Application with real time updates. Includes features like skill exchange, task management, and a community-driven platform."
     }
   ]
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 mt-10">
       <AnimatePresence mode="wait">
         {selectedProject ? (
           <motion.div
@@ -55,13 +55,13 @@ export default function Works() {
                 <img 
                   src={selectedProject.image} 
                   alt={selectedProject.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-lg border border-zinc-800"
                 />
               </div>
               <p className="text-zinc-400 mb-6">{selectedProject.details}</p>
               <div className="flex gap-4 mb-6">
                 {selectedProject.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 bg-zinc-800/50 rounded-full text-sm">
+                  <span key={tag} className="px-3 py-1 bg-zinc-300/50 dark:bg-zinc-800/50  rounded-full text-sm">
                     {tag}
                   </span>
                 ))}
@@ -71,7 +71,7 @@ export default function Works() {
                   href={selectedProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-zinc-800/50 rounded-lg hover:bg-zinc-700/50 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-lg hover:bg-zinc-500 dark:hover:bg-zinc-500 transition-colors"
                 >
                   <FaGithub /> GitHub
                 </a>
@@ -79,7 +79,7 @@ export default function Works() {
                   href={selectedProject.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-zinc-800/50 rounded-lg hover:bg-zinc-700/50 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-lg hover:bg-zinc-700/50 dark:hover:bg-zinc-500 transition-colors"
                 >
                   <FaExternalLinkAlt /> Live Demo
                 </a>
@@ -87,7 +87,7 @@ export default function Works() {
             </div>
             <button 
               onClick={() => setSelectedProject(null)}
-              className="text-zinc-400 hover:text-white transition-colors"
+              className="text-zinc-400 hover:text-zinc-500 transition-colors"
             >
               ← Back to projects
             </button>
@@ -110,14 +110,14 @@ export default function Works() {
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-lg border border-zinc-400/50"
                   />
                 </div>
-                <h3 className="text-xl font-display mb-2">{project.title}</h3>
-                <p className="text-zinc-400 text-sm mb-4">{project.description}</p>
+                <h3 className="text-xl font-extrabold font-cursive mb-2">{project.title}</h3>
+                <p className="text-zinc-500 text-sm mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="px-2 py-1 bg-zinc-800/50 rounded-full text-xs">
+                    <span key={tag} className="px-2 py-1 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-full text-xs">
                       {tag}
                     </span>
                   ))}
