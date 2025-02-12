@@ -1,153 +1,159 @@
 import { useState } from 'react'
+import { getBlogPosts } from '../lib/post'
 import { motion, AnimatePresence } from 'framer-motion'
+import ReactMarkdown from 'react-markdown'
+import { Copy, Check } from 'lucide-react'
 
 export default function Blog() {
   const [selectedPost, setSelectedPost] = useState(null)
+  const [copiedStates, setCopiedStates] = useState({})
+  const [showToast, setShowToast] = useState(false)
+  const posts = getBlogPosts()
 
-  const posts = [
-    {
-      id: 1,
-      title: "The Future of Web Development",
-      excerpt: "Exploring upcoming trends and technologies in web development...",
-      date: "Oct 15, 2023",
-      content: `
-        Web development is rapidly evolving with new frameworks, tools, and methodologies. From WebAssembly to Edge Computing, the landscape is changing dramatically.
-
-        ## Key Trends
-
-        1. **WebAssembly (Wasm)**
-           - Bringing native performance to the web
-           - Enabling new types of applications
-           - Growing ecosystem and tooling
-
-        2. **Edge Computing**
-           - Reduced latency
-           - Better performance
-           - Improved user experience
-
-        3. **AI Integration**
-           - Smarter development tools
-           - Automated testing
-           - Intelligent debugging
-
-        ## Impact on Developers
-
-        The evolution of web development tools and practices is changing how we build applications. Developers need to adapt and learn new skills to stay relevant in this rapidly changing landscape.
-
-        ## Looking Ahead
-
-        The future of web development looks exciting with new possibilities and challenges. Staying updated with these trends will be crucial for developers in the coming years.
-      `,
-      tags: ["Web Development", "Technology", "Future"]
-    },
-    {
-      id: 2,
-      title: "Designing for Accessibility",
-      excerpt: "Best practices for inclusive design and development...",
-      date: "Oct 10, 2023",
-      content: `
-        Accessibility is not just a checkbox to tick off - it's a fundamental aspect of web development that ensures everyone can use your application.
-
-        ## Core Principles
-
-        1. **Perceivable**
-           - Alternative text for images
-           - Captions for videos
-           - Clear typography and contrast
-
-        2. **Operable**
-           - Keyboard navigation
-           - No time limits
-           - Clear navigation
-
-        3. **Understandable**
-           - Clear instructions
-           - Error prevention
-           - Consistent navigation
-
-        ## Implementation Tips
-
-        - Use semantic HTML
-        - Implement ARIA attributes correctly
-        - Test with screen readers
-        - Ensure keyboard navigation works
-
-        ## Benefits
-
-        Making your application accessible not only helps users with disabilities but also improves the experience for all users and can boost SEO.
-      `,
-      tags: ["Accessibility", "Design", "Development"]
-    },
-    {
-      id: 3,
-      title: "Modern State Management",
-      excerpt: "Comparing different approaches to state management...",
-      date: "Oct 5, 2023",
-      content: `
-        State management is a crucial aspect of modern web applications. From Redux to Zustand, React Query to Jotai, this post analyzes different state management solutions.
-
-        ## Popular Solutions
-
-        1. **Redux**
-           - Predictable state container
-           - Large ecosystem
-           - DevTools support
-
-        2. **Zustand**
-           - Simple and lightweight
-           - No boilerplate
-           - Great TypeScript support
-
-        3. **React Query**
-           - Server state management
-           - Automatic background updates
-           - Cache management
-
-        ## Choosing the Right Solution
-
-        The choice of state management solution depends on various factors:
-        - Application size and complexity
-        - Team size and experience
-        - Performance requirements
-        - Development timeline
-
-        ## Best Practices
-
-        - Keep state as local as possible
-        - Use appropriate tools for different types of state
-        - Consider performance implications
-      `,
-      tags: ["React", "State Management", "Development"]
+  const copyToClipboard = async (text, blockId) => {
+    try {
+      await navigator.clipboard.writeText(text)
+      setCopiedStates({ ...copiedStates, [blockId]: true })
+      setShowToast(true)
+      setTimeout(() => {
+        setCopiedStates({ ...copiedStates, [blockId]: false })
+        setShowToast(false)
+      }, 2000)
+    } catch (err) {
+      console.error('Failed to copy text: ', err)
     }
-  ]
+  }
 
+  const CodeBlock = ({ children, className }) => {
+    const codeId = Math.random().toString(36).substr(2, 9)
+    const isActive = copiedStates[codeId]
+
+    const highlightCode = (code) => {
+      return code.split('\n').map((line, lineIndex) => {
+        const tokens = line.split(/(\s+|[{}[\]().,;:]|=>|[A-Za-z_][A-Za-z0-9_]*|\d+|['"`].*?['"`]|\/\/.*$)/).filter(Boolean);
+    
+        return (
+          <div key={lineIndex} className="line">
+            {tokens.map((token, index) => {
+              if (token.startsWith('//')) {
+                return <span key={index} className="text-[#6A9955] dark:text-[#89CA78]">{token}</span>; // Green for comments
+              }
+              if (token.match(/^(import|export|from|const|return|default|let|var|function|async|await)$/)) {
+                return <span key={index} className="text-[#E06C75] dark:text-[#F07178] font-semibold">{token}</span>; // Red for keywords
+              }
+              if (token.match(/^[A-Z][A-Za-z0-9]*$/)) {
+                return <span key={index} className="text-[#61AFEF] dark:text-[#82AAFF]">{token}</span>; // Blue for components & classes
+              }
+              if (token.match(/^(useState|useEffect|className|onClick|setState)$/)) {
+                return <span key={index} className="text-[#E5C07B] dark:text-[#FFCB6B]">{token}</span>; // Yellow for React hooks & properties
+              }
+              if (token.match(/^['"`].*['"`]$/)) {
+                return <span key={index} className="text-[#98C379] dark:text-[#C3E88D]">{token}</span>; // Green for strings
+              }
+              if (token.match(/^[<>\/]$/)) {
+                return <span key={index} className="text-[#D19A66] dark:text-[#F78C6C]">{token}</span>; // Orange for JSX tags
+              }
+              if (token.match(/^(=>|\!|\?|\:|=)$/)) {
+                return <span key={index} className="text-[#C678DD] dark:text-[#C792EA]">{token}</span>; // Purple for operators
+              }
+              if (token.match(/^[{}[\]().,;]$/)) {
+                return <span key={index} className="text-[#ABB2BF] dark:text-[#B2CCD6]">{token}</span>; // Grey for brackets & punctuation
+              }
+              if (token.match(/^\d+$/)) {
+                return <span key={index} className="text-[#D19A66] dark:text-[#F78C6C]">{token}</span>; // Orange for numbers
+              }
+              if (token.match(/^[a-z][A-Za-z0-9]*$/)) {
+                return <span key={index} className="text-[#DCDCDC] dark:text-[#FFFFFF]">{token}</span>; // White for variables
+              }
+              if (token.match(/^\s+$/)) {
+                return <span key={index}>{token}</span>; // Keep spacing intact
+              }
+    
+              return <span key={index}>{token}</span>;
+            })}
+          </div>
+        );
+      });
+    };
+    
+    
+
+    return (
+      <div className="relative group bg-[#ffffff] dark:bg-[#272727] rounded-lg overflow-hidden">
+        <div className="bg-[#1a1a1a] rounded-t-lg p-2 flex items-center gap-2 border-b border-[#2a2a2a]">
+          <div className="flex gap-1.5">
+            <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+            <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+          </div>
+          <span className="text-sm text-zinc-400 ml-2 flex-1">Code Block</span>
+        </div>
+        <pre className="bg-white dark:bg-[#282c34] rounded-b-lg font-mono text-sm leading-6">
+          <code className={className}>
+            {highlightCode(children)}
+          </code>
+        </pre>
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          onClick={() => copyToClipboard(children, codeId)}
+          className={`
+            absolute top-12 right-1 
+            opacity-0 group-hover:opacity-100
+            transition-all duration-200 
+            rounded-md
+            p-1.5
+            ${isActive 
+              ? 'bg-green-500/10 text-green-400 hover:bg-green-500/20' 
+              : 'bg-[#2d2d2d] text-zinc-400 hover:bg-[#3d3d3d]'
+            }
+          `}
+        >
+          {isActive ? (
+            <Check className="w-4 h-4" />
+          ) : (
+            <Copy className="w-4 h-4" />
+          )}
+        </motion.button>
+      </div>
+    )
+  }
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 mt-10">
+      <AnimatePresence>
+        {showToast && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed bottom-4 right-4 bg-green-500/20 z-40 text-green-400 px-4 py-2 rounded-md border border-green-500/30"
+          >
+            Code copied to clipboard!
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <AnimatePresence mode="wait">
         {selectedPost ? (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="glass-card p-8"
+            className="p-8"
           >
-            <article className="prose prose-invert max-w-none">
-              <h1 className="text-3xl font-display mb-2">{selectedPost.title}</h1>
-              <div className="flex items-center gap-4 text-zinc-400 text-sm mb-8">
+            <article className="prose prose-invert max-w-none text-justify blog-content">
+              <h1 className="text-3xl text-center font-display mb-2 ">{selectedPost.title}</h1>
+              <div className="flex items-center gap-4 justify-center text-center text-zinc-400 text-sm mb-8">
                 <span>{selectedPost.date}</span>
-                <div className="flex gap-2">
-                  {selectedPost.tags.map((tag) => (
-                    <span key={tag} className="px-2 py-1 text-zinc-500 dark:text-zinc-200 dark:bg-zinc-800/50 bg-zinc-200 border-zinc-400 rounded-full">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </div>
-              <div className="space-y-4 text-zinc-300">
-                {selectedPost.content.split('\n\n').map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
+              <ReactMarkdown 
+                className="space-y-4"
+                components={{
+                  code: CodeBlock
+                }}
+              >
+                {selectedPost.content}
+              </ReactMarkdown>
             </article>
             <button 
               onClick={() => setSelectedPost(null)}
@@ -165,23 +171,18 @@ export default function Blog() {
           >
             {posts.map((post) => (
               <motion.div
-                key={post.id}
+                key={post.slug}
                 whileHover={{ scale: 1.01 }}
                 className="glass-card p-6 cursor-pointer hover:font-semibold hover:shadow-lg transition-all duration-200 hover:blur-none"
                 onClick={() => setSelectedPost(post)}
               >
-                <h3 className="text-xl font-mono mb-2 ">{post.title}</h3>
+                <h3 className="text-xl font-mono mb-2">{post.title}</h3>
                 <div className="flex items-center gap-4 text-zinc-400 text-sm mb-4">
                   <span>{post.date}</span>
-                  <div className="flex gap-2">
-                    {post.tags.map((tag) => (
-                      <span key={tag} className="px-2 py-1 text-zinc-500 dark:text-zinc-200 border border-zinc-400 rounded-full text-xs">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
-                <p className="text-zinc-400 mb-4">{post.excerpt}</p>
+                <p className="text-zinc-400 mb-4">
+                  {post.excerpt ? post.excerpt : post.content.substring(0, 100) + '...'}
+                </p>
                 <span className="text-sm text-zinc-400 hover:text-zinc-600 transition-colors">
                   Read more →
                 </span>

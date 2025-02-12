@@ -7,13 +7,32 @@
 :root {
   --card-shadow: 0 8px 32px 0 rgba(0,0,0, 0.1);
 }
-
+@font-face {
+    font-family: "Monalisa Font";  
+  src: local("Monalisa Font"),
+    url("./fonts/Monolisa\ Font.ttf") format("truetype");
+}
 .glass-card {
   @apply dark:bg-zinc-800/30 bg-white/70 backdrop-blur-none rounded-2xl 
          dark:border-zinc-700/20 border-zinc-200/50 
          dark:text-zinc-100 text-zinc-800
          border hover:shadow-lg hover:bg-white/100;
   box-shadow: var(--card-shadow);
+}
+.blog-content pre, 
+.blog-content code {
+    background: none !important; /* Removes background only inside blog */
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+}
+
+/* Ensure normal code blocks outside the blog retain their styles */
+pre, code {
+    background: #1e1e1e; /* Dark theme example */
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 ::selection {
