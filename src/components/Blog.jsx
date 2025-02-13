@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { getBlogPosts } from '../lib/post'
 import { motion, AnimatePresence } from 'framer-motion'
 import ReactMarkdown from 'react-markdown'
@@ -10,20 +10,27 @@ export default function Blog() {
   const [copiedStates, setCopiedStates] = useState({})
   const [showToast, setShowToast] = useState(false)
   const posts = getBlogPosts()
+  const codeIdRef = useRef(Math.random().toString(36).substr(2, 9)); 
+  const codeId = codeIdRef.current; 
+  const isActive = copiedStates[codeId];
+  const [activeCodeId, setActiveCodeId] = useState(null);
 
   const copyToClipboard = async (text, blockId) => {
     try {
-      await navigator.clipboard.writeText(text)
-      setCopiedStates({ ...copiedStates, [blockId]: true })
-      setShowToast(true)
+      await navigator.clipboard.writeText(text);
+      setCopiedStates((prevState) => ({ ...prevState, [blockId]: true }));
+  
+      setShowToast(true);
       setTimeout(() => {
-        setCopiedStates({ ...copiedStates, [blockId]: false })
-        setShowToast(false)
-      }, 2000)
+        setActiveCodeId(null);
+        setCopiedStates((prevState) => ({ ...prevState, [blockId]: false }));
+        setShowToast(false);
+      }, 2000);
     } catch (err) {
-      console.error('Failed to copy text: ', err)
+      console.error("Failed to copy text: ", err);
     }
-  }
+  };
+  
   const socialLinks = [
     { icon: <Mail className="w-5 h-5" />, href: 'mailto:pathurisai31@gmail.com'},
     { icon: <Instagram className="w-5 h-5" />, href: 'https://instagram.com/Saircasticc' },
@@ -32,48 +39,50 @@ export default function Blog() {
     { icon: <Github className="w-5 h-5" />, href: 'https://github.com/Charannsai' }
   ]
   const CodeBlock = ({ children, className }) => {
-    const codeId = Math.random().toString(36).substr(2, 9)
-    const isActive = copiedStates[codeId]
+    
 
     const highlightCode = (code) => {
-      return code.split('\n').map((line, lineIndex) => {
+      return code.split("\n").map((line, lineIndex) => {
         const tokens = line.split(/(\s+|[{}[\]().,;:]|=>|[A-Za-z_][A-Za-z0-9_]*|\d+|['"`].*?['"`]|\/\/.*$)/).filter(Boolean);
     
         return (
-          <div key={lineIndex} className="line">
+          <div key={lineIndex} className="leading-6">
             {tokens.map((token, index) => {
-              if (token.startsWith('//')) {
-                return <span key={index} className="text-[#6A9955] dark:text-[#89CA78]">{token}</span>; // Green for comments
+              // Keywords (const, return, export, etc.)
+              if (token.match(/^(const|let|return|export|import|from|default)$/)) {
+                return <span key={index} className="text-[#f15454]">{token}</span>;
               }
-              if (token.match(/^(import|export|from|const|return|default|let|var|function|async|await)$/)) {
-                return <span key={index} className="text-[#E06C75] dark:text-[#F07178] font-semibold">{token}</span>; // Red for keywords
+              // Function names and Hooks (useState, setDarkMode, etc.)
+              if (token.match(/^(useState|useEffect|setDarkMode|toggleTheme)$/)) {
+                return <span key={index} className="text-[#b077e6]">{token}</span>;
               }
-              if (token.match(/^[A-Z][A-Za-z0-9]*$/)) {
-                return <span key={index} className="text-[#61AFEF] dark:text-[#82AAFF]">{token}</span>; // Blue for components & classes
+              // JSX Tags (button, div, span, etc.)
+              if (token.match(/^(button|div|span)$/)) {
+                return <span key={index} className="text-[#569CD6]">{token}</span>;
               }
-              if (token.match(/^(useState|useEffect|className|onClick|setState)$/)) {
-                return <span key={index} className="text-[#E5C07B] dark:text-[#FFCB6B]">{token}</span>; // Yellow for React hooks & properties
+              // JSX Attributes (className, onClick, etc.)
+              if (token.match(/^(className|onClick)$/)) {
+                return <span key={index} className="text-[#9CDCFE]">{token}</span>;
               }
+              // Strings (inside quotes)
               if (token.match(/^['"`].*['"`]$/)) {
-                return <span key={index} className="text-[#98C379] dark:text-[#C3E88D]">{token}</span>; // Green for strings
+                return <span key={index} className="text-[#f08a62]">{token}</span>;
               }
-              if (token.match(/^[<>\/]$/)) {
-                return <span key={index} className="text-[#D19A66] dark:text-[#F78C6C]">{token}</span>; // Orange for JSX tags
+              // Operators (=, =>, !, ?, :)
+              if (token.match(/^(=>|=|\!|\?|\:)$/)) {
+                return <span key={index} className="text-[#569CD6]">{token}</span>;
               }
-              if (token.match(/^(=>|\!|\?|\:|=)$/)) {
-                return <span key={index} className="text-[#C678DD] dark:text-[#C792EA]">{token}</span>; // Purple for operators
-              }
-              if (token.match(/^[{}[\]().,;]$/)) {
-                return <span key={index} className="text-[#ABB2BF] dark:text-[#B2CCD6]">{token}</span>; // Grey for brackets & punctuation
-              }
+              // Numbers
               if (token.match(/^\d+$/)) {
-                return <span key={index} className="text-[#D19A66] dark:text-[#F78C6C]">{token}</span>; // Orange for numbers
+                return <span key={index} className="text-[#B5CEA8]">{token}</span>;
               }
-              if (token.match(/^[a-z][A-Za-z0-9]*$/)) {
-                return <span key={index} className="text-[#c57f7f] dark:text-[#c57f7f]">{token}</span>; // White for variables
+              // Comments (// this is a comment)
+              if (token.match(/^\/\/.*$/)) {
+                return <span key={index} className="text-[#6A9955]">{token}</span>;
               }
-              if (token.match(/^\s+$/)) {
-                return <span key={index}>{token}</span>; // Keep spacing intact
+              // Brackets and punctuation
+              if (token.match(/^[{}[\]().,;]$/)) {
+                return <span key={index} className="text-[#838282]">{token}</span>;
               }
     
               return <span key={index}>{token}</span>;
@@ -83,48 +92,56 @@ export default function Blog() {
       });
     };
     
-    
-
     return (
-      <div className="relative group bg-[#ffffff] dark:bg-[#272727] rounded-lg overflow-hidden">
-        <div className="bg-[#1a1a1a] rounded-t-lg p-2 flex items-center gap-2 border-b border-[#2a2a2a]">
-          <div className="flex gap-1.5">
-            <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-            <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-            <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-          </div>
-          <span className="text-sm text-zinc-400 ml-2 flex-1">Code Block</span>
+      <div className="relative group bg-[#e7e7e760] dark:bg-[#0D1117] border dark:border-0 rounded-lg overflow-hidden">
+      <div className="bg-[#1a1a1a] rounded-t-lg p-2 flex items-center gap-2 border-b border-[#2a2a2a]">
+        <div className="flex gap-1.5">
+          <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+          <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+          <div className="w-3 h-3 rounded-full bg-[#27c93f]"></div>
         </div>
-        <pre className="bg-white dark:bg-[#282c34] rounded-b-lg font-mono text-sm leading-6">
-          <code className={className}>
-            {highlightCode(children)}
-          </code>
-        </pre>
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          onClick={() => copyToClipboard(children, codeId)}
-          className={`
-            absolute top-12 right-3 hidden group-hover:flex items-center gap-1.5
-            opacity-0 hover:opacity-100
-            transition-all duration-200 
-            rounded-md
-            p-1.5
-            ${isActive 
-              ? 'bg-green-500/10 text-green-400 hover:bg-green-500/20' 
-              : 'bg-[#2d2d2d] text-zinc-400 hover:bg-[#3d3d3d]'
-            }
-          `}
-        >
-          {isActive ? (
-            <Check className="w-4 h-4" />
-          ) : (
-            <Copy className="w-4 h-4" />
-          )}
-        </motion.button>
+        <span className="text-sm text-zinc-400 ml-2 flex-1">Code Block</span>
       </div>
-    )
-  }
+      <pre className="bg-white dark:bg-[#282c34] rounded-b-lg font-mono text-sm leading-6">
+        <code className={className}>
+          {highlightCode(children)}
+        </code>
+      </pre>
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        onClick={() => copyToClipboard(children, codeId)}
+        className={`absolute top-12 right-3 hidden group-hover:flex items-center gap-1.5
+          opacity-0 hover:opacity-100 transition-all duration-200 rounded-md p-1.5
+          ${isActive ? 'bg-green-500/10 text-green-400 hover:bg-green-500/20' : 'bg-[#2d2d2d] text-zinc-400 hover:bg-[#3d3d3d]'}`}
+      >
+        <AnimatePresence mode="wait">
+          {isActive ? (
+            <motion.div
+              key="check"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Check className="w-4 h-4 text-green-400" />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="copy"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Copy className="w-4 h-4" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.button>
+    </div>
+  );
+};
   return (
     <div className="mt-10  ">
       <AnimatePresence>
@@ -133,9 +150,9 @@ export default function Blog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed bottom-4 right-4 bg-green-900 dark:bg-green-500/20 z-50 text-green-400 px-4 py-2 rounded-md border border-green-500/30"
+            className="fixed bottom-4 right-4 font-monolisa bg-green-900 dark:bg-green-500/20 z-50 text-green-400 px-2 py-2 rounded-full border text-xs border-green-500/30"
           >
-            Copied to clipboard!
+           🤝 Copied to clipboard!
           </motion.div>
         )}
       </AnimatePresence>

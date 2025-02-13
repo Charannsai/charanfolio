@@ -38,16 +38,19 @@
     line-height: 1.5 !important;
 }
 .prose :is(h3) {
-    font-family: inherit !important;
+    font-family:monospace !important;
     font-weight: lighter !important;
 }
-
-/* .prose :is(p, a, li, td) {
+.prose :is(h2) {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+  font-weight: lighter !important;
+}
+.prose :is(p) {
     font-family: inherit !important; 
     font-weight: 400 !important;
     color: inherit !important; 
     line-height: 1.5 !important;
-} */
+}
 .prose :is(strong) {
   font-family: inherit !important; 
   
