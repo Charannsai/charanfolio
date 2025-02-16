@@ -93,7 +93,7 @@ export default function Blog() {
     };
     
     return (
-      <div className="relative group bg-[#e7e7e760] dark:bg-[#0D1117] border dark:border-0 rounded-lg overflow-hidden">
+      <div className="relative group  bg-[#e7e7e760] dark:bg-[#0D1117] border dark:border-0 rounded-lg overflow-hidden">
       <div className="bg-[#1a1a1a] rounded-t-lg p-2 flex items-center gap-2 border-b border-[#2a2a2a]">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
@@ -164,7 +164,7 @@ export default function Blog() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="p-8 glass-card mt-16"
+            className="p-8 mt-16"
           >
            
             <article className="prose prose-invert max-w-none md:text-justify  blog-content">

@@ -1,9 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 
 export default function Works() {
   const [selectedProject, setSelectedProject] = useState(null)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkIfMobile()
+    window.addEventListener('resize', checkIfMobile)
+    
+    return () => window.removeEventListener('resize', checkIfMobile)
+  }, [])
 
   const projects = [
     {
@@ -15,16 +27,15 @@ export default function Works() {
       github: "https://github.com/Charannsai/Solar-power-prediction",
       live: "https://github.com/Charannsai/Solar-Power-Prediction/blob/main/solarpowerprediction.ipynb",
       details: "This Project is a part of my internship at AICTE. The project aims to predict the solar power output using regression models based on historical data by considering various factors like weather conditions, time of the day, and geographical location."
-      
     },
     {
       id: 2,
       title: "JNTUHUB",
       description: "A platform where students can access all the resources",
       image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-02-05%20231334.png",
-      tags: ["React","Tailwind CSS", "Node.js", "POSTGRESQL"],
+      tags: ["React", "Tailwind CSS", "Node.js", "POSTGRESQL"],
       github: "https://github.com/charannsai/JntuHub",
-      live: "https://demo.com",
+      live: "https://jntuhub.vercel.app",
       details: "A comprehensive resource accessibility solution featuring notes, syllabus, academic year plans. The platform includes an NLP based Chatbot Model dashboard where it resolves all possible queries asked by the students regarding learning and academics."
     },
     {
@@ -38,6 +49,54 @@ export default function Works() {
       details: "A semi-featured(Still Working) Skill Exchange and task management Application with real time updates. Includes features like skill exchange, task management, and a community-driven platform."
     }
   ]
+
+  const InfiniteMoveCards = ({ tags }) => {
+    const duplicatedTags = [...tags, ...tags]
+    
+    return (
+      <div className="w-full overflow-hidden relative">
+        <motion.div
+          className="flex gap-4 py-4"
+          animate={{
+            x: ["0%", "-50%"],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        >
+          {duplicatedTags.map((tag, idx) => (
+            <span
+              key={`${tag}-${idx}`}
+              className="whitespace-nowrap px-3 py-1 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-full text-sm"
+            >
+              {tag}
+            </span>
+          ))}
+        </motion.div>
+      </div>
+    )
+  }
+
+  const renderTags = (tags) => {
+    if (isMobile) {
+      return <InfiniteMoveCards tags={tags} />
+    }
+    
+    return (
+      <div className="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <span 
+            key={tag} 
+            className="px-2 py-1 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-full text-xs"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6 mt-10">
@@ -58,20 +117,15 @@ export default function Works() {
                   className="w-full h-full object-cover rounded-lg border border-zinc-800"
                 />
               </div>
-              <p className="text-zinc-400 mb-6">{selectedProject.details}</p>
-              <div className="flex gap-4 mb-6">
-                {selectedProject.tags.map((tag) => (
-                  <span key={tag} className="px-3 py-1 bg-zinc-300/50 dark:bg-zinc-800/50  rounded-full text-sm">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="flex gap-4">
+              <p className="text-zinc-400 mb-3 font-thin">{selectedProject.details}</p>
+              <h3 className="py-4 font-monolisa">Technologies</h3>
+              {renderTags(selectedProject.tags)}
+              <div className="flex gap-4 mt-6">
                 <a 
                   href={selectedProject.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-lg hover:bg-zinc-500 dark:hover:bg-zinc-500 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-full font-mono hover:bg-zinc-500 dark:hover:bg-zinc-500 transition-colors"
                 >
                   <FaGithub /> GitHub
                 </a>
@@ -79,7 +133,7 @@ export default function Works() {
                   href={selectedProject.live}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-lg hover:bg-zinc-700/50 dark:hover:bg-zinc-500 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-full font-mono hover:bg-zinc-700/50 dark:hover:bg-zinc-500 transition-colors"
                 >
                   <FaExternalLinkAlt /> Live Demo
                 </a>
@@ -115,13 +169,7 @@ export default function Works() {
                 </div>
                 <h3 className="text-xl font-extrabold font-cursive mb-2">{project.title}</h3>
                 <p className="text-zinc-500 text-sm mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="px-2 py-1 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-full text-xs">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                {renderTags(project.tags)}
               </motion.div>
             ))}
           </motion.div>
