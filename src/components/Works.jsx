@@ -20,6 +20,16 @@ export default function Works() {
   const projects = [
     {
       id: 1,
+      title: "EventOrgX",
+      description: "The EventOrgX is a platform to create, manage events on their specified sub domains.",
+      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-03-14%20001426.png",
+      tags: ["Typescript", "React", "Node.js", "Postgresql", "Tailwind CSS", "supabase"],
+      github: "https://charanfolio.site/",
+      live: "https://charanfolio.site/",
+      details: "The EventOrgx is a platform where one will get assigned a subdomain to host their events on their subdomain and with that organizations can create, manage events, handle registrations or participants, trigger mails to the participants directly through platform, generate certifications at once for all the participants after the event is completed."
+    },
+    {
+      id: 2,
       title: "Predicting Solar Power Output",
       description: "Predicting solar power output using regression models",
       image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/download.png",
@@ -29,7 +39,7 @@ export default function Works() {
       details: "This Project is a part of my internship at AICTE. The project aims to predict the solar power output using regression models based on historical data by considering various factors like weather conditions, time of the day, and geographical location."
     },
     {
-      id: 2,
+      id: 3,
       title: "JNTUHUB",
       description: "A platform where students can access all the resources",
       image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-02-05%20231334.png",
@@ -39,7 +49,7 @@ export default function Works() {
       details: "A comprehensive resource accessibility solution featuring notes, syllabus, academic year plans. The platform includes an NLP based Chatbot Model dashboard where it resolves all possible queries asked by the students regarding learning and academics."
     },
     {
-      id: 3,
+      id: 4,
       title: "KaaryaLink",
       description: "A Collabarative, Community Driven Web Application",
       image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-02-12%20145104.png",
@@ -89,7 +99,7 @@ export default function Works() {
         {tags.map((tag) => (
           <span 
             key={tag} 
-            className="px-2 py-1 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-full text-xs"
+            className="px-2 py-1 bg-zinc-300/50 dark:bg-zinc-800/50 rounded-full mt-1 font-mono text-xs"
           >
             {tag}
           </span>
@@ -117,7 +127,7 @@ export default function Works() {
                   className="w-full h-full object-cover rounded-lg border border-zinc-800"
                 />
               </div>
-              <p className="text-zinc-400 mb-3 font-thin">{selectedProject.details}</p>
+              <p className="text-zinc-400 mb-3 font-light">{selectedProject.details}</p>
               <h3 className="py-4 font-monolisa">Technologies</h3>
               {renderTags(selectedProject.tags)}
               <div className="flex gap-4 mt-6">
@@ -151,7 +161,7 @@ export default function Works() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 font-light md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {projects.map((project) => (
               <motion.div
@@ -160,15 +170,16 @@ export default function Works() {
                 className="glass-card p-6 cursor-pointer"
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="aspect-video bg-zinc-800 rounded-lg mb-4 overflow-hidden">
+                <div className="aspect-video bg-zinc-800 rounded-lg mb-4 overflow-hidden ">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover rounded-lg border border-zinc-400/50"
                   />
                 </div>
-                <h3 className="text-xl font-extrabold font-cursive mb-2">{project.title}</h3>
-                <p className="text-zinc-500 text-sm mb-4">{project.description}</p>
+                <h3 className="text-xl font-mono
+                mb-2">{project.title}</h3>
+                <p className="text-zinc-500 text-sm mt-2 mb-4">{project.description}</p>
                 {renderTags(project.tags)}
               </motion.div>
             ))}

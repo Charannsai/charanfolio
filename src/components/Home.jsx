@@ -50,24 +50,24 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
 
   const latestUpdates = [
     {
-      text: "📌 Joined as ML Intern at AICTE",
-      date: "January 2025",
+      text: "📌 Joined as Full Stack Developer Intern at Edunet Foundation",
+      date: "March 2025",
       link: "https://linkedin.com/in/charan-sai-pathuri-177a9a282/"
     },
     {
-      text: "📌 Published a Web Application for JNTUH Students",
-      date: "December 2024",
-      link: "https://jntuhub.vercel.app"
+      text: "📌 Launched web application for beta testing(EventOrgX)",
+      date: "February 2024",
+      link: "https://charanfolio.site"
     }
   ]
 
   return (
     <div className="max-w-4xl mx-auto px-2 sm:px-6">
-      <div className="flex flex-row items-start gap-4 mb-4">
+      <div className="flex flex-row items-start gap-3 mb-2">
         {/* Profile Image Section */}
         <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-72 md:h-72 rounded-3xl overflow-hidden transition-transform glass-card relative flex-shrink-0">
           <div className="absolute text-xl md:text-2xl w-full h-full opacity-80 flex items-center justify-center bottom-16 md:bottom-24 z-0">
-            <h2 className="font-bold text-center px-2 md:inline-flex hidden">Think.  Code.  Deploy.</h2>
+            <h2 className="font-semibold text-center px-2 md:inline-flex hidden">Think.  Code.  Deploy.</h2>
           </div>
           <img 
             src="https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/imgg2.png"
@@ -78,16 +78,18 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
 
         {/* Info Section */}
         <div className="flex-1">
-          <div className="space-y-2">
-            <h1 className="mb-2 font-cursive text-lg sm:text-xl md:text-3xl dark:text-white text-zinc-900">
+          <div className="space-y-2 ">
+            <div className='glass-card p-3 sm:p-5'>
+            <h1 className="mb-2 font-monolisa text-xs sm:text-xs md:text-xl dark:text-white text-zinc-900">
               Hey, I'm Charan Sai Pathuri
             </h1>
-            <p className="text-xs md:text-base text-zinc-600 hidden md:inline-flex dark:text-zinc-500">
-            Welcome to my portfolio. I'm a passionate developer dedicated to crafting cutting-edge applications that solve real-world problems. Currently, I'm expanding my expertise in AI/ML while honing my problem-solving skills through DSA challenges. I strive to create impactful solutions that make a difference. Connect with me to discuss your project or to collaborate on exciting projects. Let's build something amazing together!
+            <p className="text-xs md:text-base text-zinc-600 hidden md:inline-flex font-light dark:text-zinc-500">
+            Welcome to my portfolio. I'm a passionate developer dedicated to crafting cutting-edge applications that solve real-world problems. Currently, I'm expanding my expertise in AI/ML while honing my problem-solving skills through DSA challenges. Connect with me to discuss your project or to collaborate on exciting projects. Let's build something amazing together!
             </p>
+            </div>
             
             {/* Action Buttons */}
-            <div className="flex flex-wrap gap-2 mt-2 md:mt-4">
+            <div className="flex flex-wrap gap-3 mt-2 md:mt-4">
               <button
                 className="glass-card px-3 py-1.5 md:px-8 md:py-4 transition-transform duration-200 hover:scale-105 text-xs sm:text-base flex-1"
                 onClick={() => setActiveSection('works')}
@@ -102,7 +104,7 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
               </button>
               <button
                 onClick={toggleTheme}
-                className="glass-card p-1.5 md:p-4 transition-transform duration-200 hover:scale-105 w-full sm:w-auto"
+                className="glass-card p-1.5 md:p-4 transition-transform duration-200 hover:scale-105 w-auto"
                 aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
               >
                 {theme === 'dark' ? <Sun className="w-4 h-4 mx-auto" /> : <Moon className="w-4 h-4 mx-auto" />}
@@ -112,9 +114,9 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 ">
+      <div className="flex flex-col gap-3 ">
         {/* Navigation Cards */}
-        <div className="grid grid-cols-12 gap-2 md:gap-4 items-start ">
+        <div className="grid grid-cols-12 gap-3 md:gap-3 items-start ">
           <div
             className="col-span-6 sm:col-span-3 glass-card p-3 sm:p-6 cursor-pointer transition-transform duration-300 hover:scale-105"
             onClick={() => setActiveSection('about')}
@@ -146,7 +148,7 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-12 gap-2 md:gap-4 items-start">
+        <div className="grid grid-cols-12 gap-3 items-start">
           {/* Latest Updates Section */}
           <div className="col-span-12 sm:col-span-8 glass-card p-3 sm:p-6">
             <h3 className="text-base sm:text-xl mb-3 dark:text-white text-zinc-900">Latest Updates</h3>
@@ -182,7 +184,7 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 md:gap-4">
+            <div className="grid grid-cols-2 gap-3 md:gap-3">
               <div
                 className="glass-card p-2 sm:p-4 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
                 onClick={() => setActiveSection('works')}
@@ -191,14 +193,14 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
               </div>
               <div
                 className="glass-card p-2 sm:p-4 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
-                onClick={() => src='/Resumee.pdf'}
+                onClick={() => href='/Resumee.pdf'}
               >
                 <span className="text-xs sm:text-base dark:text-white text-zinc-900">Resume</span>
               </div>
             </div>
 
             <div
-              className="glass-card p-2 sm:p-4 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
+              className="glass-card p-2 sm:p-6 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
               onClick={() => setActiveSection('contact')}
             >
               <span className="text-xs sm:text-base dark:text-white text-zinc-900">Contact Me</span>

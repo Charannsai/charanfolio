@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 :root {
-  --card-shadow: 0 8px 32px 0 rgba(0,0,0, 0.1);
+  --card-shadow: 0 8px 32px 0 rgba(24, 24, 24, 0.103);
   scrollbar-width: 0;
 }
 @font-face {
@@ -18,7 +18,7 @@
 
 
 .glass-card {
-  @apply dark:bg-zinc-800/30 bg-white/70 backdrop-blur-none rounded-2xl 
+  @apply dark:bg-zinc-900/50 bg-white/70 backdrop-blur-none rounded-2xl 
          dark:border-zinc-700/20 border-zinc-200/50 
          dark:text-zinc-100 text-zinc-800
          border hover:shadow-lg hover:bg-white/100;

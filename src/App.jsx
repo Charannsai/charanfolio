@@ -32,7 +32,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen p-4 flex items-center justify-center transition-colors duration-300 dark:bg-zinc-950 bg-zinc-100">
+    <div className="min-h-screen p-4 flex items-center justify-center transition-colors duration-300 dark:bg-zinc-900/50 bg-zinc-100">
       <motion.div 
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
