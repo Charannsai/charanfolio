@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Mail, Instagram, Linkedin, Facebook, Twitter, Moon, Sun, Github } from 'lucide-react'
+import { Mail, Instagram, Linkedin, Facebook, Twitter, Moon, Sun, Github, Heart } from 'lucide-react'
 
 const CountUp = ({ end, duration = 2000 }) => {
   const [count, setCount] = useState(0)
@@ -39,7 +39,7 @@ const LatestUpdate = ({ update }) => {
   )
 }
 
-export default function Home({ setActiveSection, theme, toggleTheme }) {
+export default function Home({ navigateTo, theme, toggleTheme }) {
   const socialLinks = [
     { icon: <Mail className="w-5 h-5" />, href: 'mailto:pathurisai31@gmail.com'},
     { icon: <Instagram className="w-5 h-5" />, href: 'https://instagram.com/Saircasticc' },
@@ -92,13 +92,13 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
             <div className="flex flex-wrap gap-3 mt-2 md:mt-4">
               <button
                 className="glass-card px-3 py-1.5 md:px-8 md:py-4 transition-transform duration-200 hover:scale-105 text-xs sm:text-base flex-1"
-                onClick={() => setActiveSection('works')}
+                onClick={() => navigateTo('/works')}
               >
                 View Works
               </button>
               <button
                 className="glass-card px-3 py-1.5 md:px-16 md:py-2 transition-transform duration-200 hover:scale-105 text-xs sm:text-base flex-1"
-                onClick={() => setActiveSection('contact')}
+                onClick={() => navigateTo('/contact')}
               >
                 Let's Talk
               </button>
@@ -119,14 +119,14 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
         <div className="grid grid-cols-12 gap-3 md:gap-3 items-start ">
           <div
             className="col-span-6 sm:col-span-3 glass-card p-3 sm:p-6 cursor-pointer transition-transform duration-300 hover:scale-105"
-            onClick={() => setActiveSection('about')}
+            onClick={() => navigateTo('/about')}
           >
             <h3 className="text-lg sm:text-2xl dark:text-white font-semibold text-zinc-900 text-center">About</h3>
           </div>
 
           <div
             className="col-span-6 sm:col-span-3 glass-card p-3 sm:p-6 cursor-pointer transition-transform duration-300 hover:scale-105"
-            onClick={() => setActiveSection('blog')}
+            onClick={() => navigateTo('/blog')}
           >
             <h3 className="text-lg sm:text-2xl font-semibold dark:text-white text-zinc-900 text-center">Blogs</h3>
           </div>
@@ -149,10 +149,9 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
 
         {/* Content Grid */}
         <div className="grid grid-cols-12 gap-3 items-start">
-          {/* Latest Updates Section */}
           <div className="col-span-12 sm:col-span-8 glass-card p-3 sm:p-6">
             <h3 className="text-base sm:text-xl mb-3 dark:text-white text-zinc-900">Latest Updates</h3>
-            <div className="space-y-3">
+            <div className="space-y-3 font-light">
               {latestUpdates.map((update, index) => (
                 <LatestUpdate key={index} update={update} />
               ))}
@@ -167,47 +166,48 @@ export default function Home({ setActiveSection, theme, toggleTheme }) {
                   <h3 className="text-xl sm:text-3xl font-bold mb-1 dark:text-white text-zinc-900">
                     <CountUp end={20} />+
                   </h3>
-                  <p className="text-xs sm:text-base text-zinc-600 dark:text-zinc-500">Projects</p>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-xl sm:text-3xl font-bold mb-1 dark:text-white text-zinc-900">
-                    <CountUp end={15} />+
-                  </h3>
-                  <p className="text-xs sm:text-base text-zinc-600 dark:text-zinc-500">Clients</p>
-                </div>
-                <div className="text-center">
-                  <h3 className="text-xl sm:text-3xl font-bold mb-1 dark:text-white text-zinc-900">
-                    <CountUp end={2} />+
-                  </h3>
-                  <p className="text-xs sm:text-base text-zinc-600 dark:text-zinc-500">Experience</p>
-                </div>
-              </div>
+                  <p className="font-light text-sm sm:text-base text-zinc-600 dark:text-zinc-400">Projects</p>
+               </div>
+               <div className="text-center">
+              <h3 className="text-xl sm:text-3xl font-bold mb-1 dark:text-white text-zinc-900">
+                <CountUp end={2} />+
+              </h3>
+              <p className="font-light text-sm sm:text-base text-zinc-600 dark:text-zinc-400">Yr Exp.</p>
             </div>
+            <div className="text-center">
+              <h3 className="text-xl sm:text-3xl font-bold mb-1 dark:text-white text-zinc-900">
+                <CountUp end={15} />+
+              </h3>
+              <p className="font-light text-sm sm:text-base text-zinc-600 dark:text-zinc-400">Clients</p>
+            </div>
+          </div>
+        </div>
 
-            <div className="grid grid-cols-2 gap-3 md:gap-3">
+        <div className="grid grid-cols-2 gap-3 md:gap-3">
               <div
                 className="glass-card p-2 sm:p-4 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
-                onClick={() => setActiveSection('works')}
+                onClick={() => navigateTo('/works')}
               >
                 <span className="text-xs sm:text-base dark:text-white text-zinc-900">Works</span>
               </div>
               <div
                 className="glass-card p-2 sm:p-4 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
-                onClick={() => href='/Resumee.pdf'}
+                onClick={() => navigateTo='/Resumee.pdf'}
               >
                 <span className="text-xs sm:text-base dark:text-white text-zinc-900">Resume</span>
               </div>
             </div>
 
             <div
-              className="glass-card p-2 sm:p-6 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
-              onClick={() => setActiveSection('contact')}
+              className="glass-card p-2 sm:p-5 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
+              onClick={() => navigateTo('/contact')}
             >
               <span className="text-xs sm:text-base dark:text-white text-zinc-900">Contact Me</span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
+  </div>
+</div>
   )
 }
