@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaGithub, FaTwitter, FaLinkedin, FaEnvelope, FaHeart, FaConnectdevelop, FaCheckCircle, FaTimesCircle } from 'react-icons/fa'
+import { FaGithub, FaTwitter, FaLinkedin, FaEnvelope, FaHeart, FaConnectdevelop, FaCheckCircle, FaTimesCircle, FaInstagram, FaAppStore, FaAddressCard } from 'react-icons/fa'
 
 export default function Contact() {
   const [status, setStatus] = useState(null)
@@ -28,10 +28,13 @@ export default function Contact() {
   }
 
   const socialLinks = [
-    { icon: <FaGithub />, label: 'GitHub' },
-    { icon: <FaTwitter />, label: 'Twitter' },
-    { icon: <FaLinkedin />, label: 'LinkedIn' },
-    { icon: <FaEnvelope />, label: 'Email' }
+    { icon: <FaEnvelope />, label: 'Email', url: 'mailto:pathurisai31@.com'},
+    { icon: <FaGithub />, label: 'GitHub', url: 'https://github.com/Charannsai'},
+    { icon: <FaLinkedin />, label: 'LinkedIn', url: 'www.linkedin.com/in/charan-sai-pathuri-177a9a282'},
+    { icon: <FaInstagram />, label: 'Instagram', url: 'https://www.instagram.com/saircasticc'},
+    { icon: <FaTwitter />, label: 'Twitter', url: 'https://x.com/saircasticc'},
+    { icon: <FaAddressCard />, label: 'Bento', url: 'https://bento.me/saircastic'},
+    
   ]
 
   return (
@@ -51,12 +54,13 @@ export default function Contact() {
           {socialLinks.map(({ icon, label }) => (
             <motion.a
               key={label}
+              href= {socialLinks.find((link) => link.label === label)?.url}
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="glass-card p-4 flex items-center gap-3 cursor-pointer"
+              className="glass-card p-4 flex items-center gap-4 cursor-pointer "
             >
-              {icon}
-              <span>{label}</span>
+              {icon}<span className="text-base">{label}</span>
             </motion.a>
           ))}
         </div>
