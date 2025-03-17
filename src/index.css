@@ -15,6 +15,14 @@
   font-style: normal;
 }
 
+.custom-scrollbar {
+  height: 560px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(78, 78, 78, 0.589) rgba(0, 0, 0, 0.1);
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
 
 
 .glass-card {
@@ -69,8 +77,8 @@ pre, code {
 }
 
 ::selection {
-  color: white;
-  background: rgba(47, 189, 255, 0.76);
+  color: rgb(255, 255, 255);
+  background: rgba(81, 200, 255, 0.76);
 }
 
 .glass-card:hover {
