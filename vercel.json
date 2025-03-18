@@ -1,14 +1,14 @@
 {
     "redirects": [
         {
-            "source": "/blogs",
+            "source": "/blog",
             "destination": "https://blogs.charanfolio.me",
             "permanent": true
         }
     ],
     "rewrites": [
         {
-            "source": "/(?!blogs)(.*)",
+            "source": "/(?!blog)(.*)",
             "destination": "/"
         }
     ]
