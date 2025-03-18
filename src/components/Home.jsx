@@ -192,7 +192,7 @@ export default function Home({ navigateTo, theme, toggleTheme }) {
               </div>
               <div
                 className="glass-card p-2 sm:p-4 text-center cursor-pointer transition-transform duration-300 hover:scale-105"
-                onClick={() => navigateTo='/Resumee.pdf'}
+                onClick={() => navigateTo='/MyResumee.pdf'}
               >
                 <span className="text-xs sm:text-base dark:text-white text-zinc-900">Resume</span>
               </div>
