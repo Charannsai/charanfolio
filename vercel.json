@@ -1,7 +1,7 @@
 {
     "redirects": [
         {
-            "source": "/blogs",
+            "source": "/blog",
             "destination": "https://blogs.charanfolio.me",
             "permanent": true
         }
