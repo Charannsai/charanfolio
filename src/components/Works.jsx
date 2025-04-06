@@ -20,13 +20,13 @@ export default function Works() {
   const projects = [
     {
       id: 1,
-      title: "EventOrgX",
-      description: "The EventOrgX is a platform to create, manage events on their specified sub domains.",
-      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-03-14%20001426.png",
-      tags: ["Typescript", "React", "Node.js", "Postgresql", "Tailwind CSS", "supabase"],
-      github: "https://charanfolio.site/",
-      live: "https://charanfolio.site/",
-      details: "The EventOrgx is a platform where one will get assigned a subdomain to host their events on their subdomain and with that organizations can create, manage events, handle registrations or participants, trigger mails to the participants directly through platform, generate certifications at once for all the participants after the event is completed."
+      title: "ICN",
+      description: "The ICN is a Club Maintained by our campus to help other students to learn and grow in the field of different domains.",
+      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-04-06%20101823.png",
+      tags: [ "React", "Node.js", "Postgresql", "Tailwind CSS", "supabase"],
+      github: "https://icn.charanfolio.me/",
+      live: "https://icn.charanfolio.me/",
+      details: "The Main aim of the club is help students learn, grow and build. We as a club are trying to help students in the field of Web Development, Machine Learning, Data Science, and many more. We are trying to build a community where students can learn and grow together and build projects in a collaborative environment. This Website is the significance of our club and the work we are doing."
     },
     {
       id: 2,
@@ -40,26 +40,17 @@ export default function Works() {
     },
     {
       id: 3,
-      title: "EventOrgX",
-      description: "The EventOrgX is a platform to create, manage events on their specified sub domains.",
-      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-03-14%20001426.png",
+      title: "Data Science Portfolio",
+      description: "A portfolio showcasing data science projects and skills.",
+      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-04-06%20102048.png",
       tags: ["Typescript", "React", "Node.js", "Postgresql", "Tailwind CSS", "supabase"],
-      github: "https://charanfolio.site/",
-      live: "https://charanfolio.site/",
-      details: "The EventOrgx is a platform where one will get assigned a subdomain to host their events on their subdomain and with that organizations can create, manage events, handle registrations or participants, trigger mails to the participants directly through platform, generate certifications at once for all the participants after the event is completed."
+      github: "https://ramana.vercel.app/",
+      live: "https://ramana.vercel.app/",
+      details: "The Data Science Portfolio is the portfolio where i built this for my mentor and this is a portfolio showcasing data science projects and skills. The portfolio includes various projects, skills, and experiences related to data science. It is designed to showcase the work and expertise of the individual in the field of data science."
     },
+    
     {
       id: 4,
-      title: "EventOrgX",
-      description: "The EventOrgX is a platform to create, manage events on their specified sub domains.",
-      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-03-14%20001426.png",
-      tags: ["Typescript", "React", "Node.js", "Postgresql", "Tailwind CSS", "supabase"],
-      github: "https://charanfolio.site/",
-      live: "https://charanfolio.site/",
-      details: "The EventOrgx is a platform where one will get assigned a subdomain to host their events on their subdomain and with that organizations can create, manage events, handle registrations or participants, trigger mails to the participants directly through platform, generate certifications at once for all the participants after the event is completed."
-    },
-    {
-      id: 5,
       title: "Predicting Solar Power Output",
       description: "Predicting solar power output using regression models",
       image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/download.png",
@@ -69,7 +60,7 @@ export default function Works() {
       details: "This Project is a part of my internship at AICTE. The project aims to predict the solar power output using regression models based on historical data by considering various factors like weather conditions, time of the day, and geographical location."
     },
     {
-      id: 6,
+      id: 5,
       title: "JNTUHUB",
       description: "A platform where students can access all the resources",
       image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-02-05%20231334.png",
@@ -79,7 +70,7 @@ export default function Works() {
       details: "A comprehensive resource accessibility solution featuring notes, syllabus, academic year plans. The platform includes an NLP based Chatbot Model dashboard where it resolves all possible queries asked by the students regarding learning and academics."
     },
     {
-      id: 7,
+      id: 6,
       title: "KaaryaLink",
       description: "A Collabarative, Community Driven Web Application",
       image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-02-12%20145104.png",
