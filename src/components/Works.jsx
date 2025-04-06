@@ -30,6 +30,36 @@ export default function Works() {
     },
     {
       id: 2,
+      title: "EventOrgX",
+      description: "The EventOrgX is a platform to create, manage events on their specified sub domains.",
+      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-03-14%20001426.png",
+      tags: ["Typescript", "React", "Node.js", "Postgresql", "Tailwind CSS", "supabase"],
+      github: "https://charanfolio.site/",
+      live: "https://charanfolio.site/",
+      details: "The EventOrgx is a platform where one will get assigned a subdomain to host their events on their subdomain and with that organizations can create, manage events, handle registrations or participants, trigger mails to the participants directly through platform, generate certifications at once for all the participants after the event is completed."
+    },
+    {
+      id: 3,
+      title: "EventOrgX",
+      description: "The EventOrgX is a platform to create, manage events on their specified sub domains.",
+      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-03-14%20001426.png",
+      tags: ["Typescript", "React", "Node.js", "Postgresql", "Tailwind CSS", "supabase"],
+      github: "https://charanfolio.site/",
+      live: "https://charanfolio.site/",
+      details: "The EventOrgx is a platform where one will get assigned a subdomain to host their events on their subdomain and with that organizations can create, manage events, handle registrations or participants, trigger mails to the participants directly through platform, generate certifications at once for all the participants after the event is completed."
+    },
+    {
+      id: 4,
+      title: "EventOrgX",
+      description: "The EventOrgX is a platform to create, manage events on their specified sub domains.",
+      image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-03-14%20001426.png",
+      tags: ["Typescript", "React", "Node.js", "Postgresql", "Tailwind CSS", "supabase"],
+      github: "https://charanfolio.site/",
+      live: "https://charanfolio.site/",
+      details: "The EventOrgx is a platform where one will get assigned a subdomain to host their events on their subdomain and with that organizations can create, manage events, handle registrations or participants, trigger mails to the participants directly through platform, generate certifications at once for all the participants after the event is completed."
+    },
+    {
+      id: 5,
       title: "Predicting Solar Power Output",
       description: "Predicting solar power output using regression models",
       image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/download.png",
@@ -39,7 +69,7 @@ export default function Works() {
       details: "This Project is a part of my internship at AICTE. The project aims to predict the solar power output using regression models based on historical data by considering various factors like weather conditions, time of the day, and geographical location."
     },
     {
-      id: 3,
+      id: 6,
       title: "JNTUHUB",
       description: "A platform where students can access all the resources",
       image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-02-05%20231334.png",
@@ -49,7 +79,7 @@ export default function Works() {
       details: "A comprehensive resource accessibility solution featuring notes, syllabus, academic year plans. The platform includes an NLP based Chatbot Model dashboard where it resolves all possible queries asked by the students regarding learning and academics."
     },
     {
-      id: 4,
+      id: 7,
       title: "KaaryaLink",
       description: "A Collabarative, Community Driven Web Application",
       image: "https://raw.githubusercontent.com/Charannsai/images-haha/refs/heads/main/Screenshot%202025-02-12%20145104.png",
